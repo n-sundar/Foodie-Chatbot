@@ -1,8 +1,8 @@
 actions:
 - action_reset_chat
 - action_search_restaurants
+- action_send_email
 - action_validate_location
-- action_sendemail
 - utter_ask_budget
 - utter_ask_cuisine
 - utter_ask_howcanhelp
@@ -26,12 +26,12 @@ intents:
 responses:
   utter_ask_budget:
   - buttons:
-    - payload: che
-      title: Pocket-Friendly (< Rs.300)
-    - payload: mod
-      title: Moderate (Rs.300 - 700)
-    - payload: exp
-      title: Fine Dining (> Rs.700)
+    - payload: budg
+      title: Pocket-Friendly < Rs.300
+    - payload: norml
+      title: Moderate Rs.300 - 700
+    - payload: expnsv
+      title: Fine Dining > Rs.700
     text: What is the average budget for two?
   utter_ask_cuisine:
   - buttons:

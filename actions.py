@@ -8,6 +8,10 @@ from rasa_sdk.events import SlotSet
 import zomatopy
 import json
 
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+
 class ActionSearchRestaurants(Action):
 	def name(self):
 		return 'action_search_restaurants'
@@ -21,7 +25,7 @@ class ActionSearchRestaurants(Action):
 		d1 = json.loads(location_detail)
 		lat=d1["location_suggestions"][0]["latitude"]
 		lon=d1["location_suggestions"][0]["longitude"]
-		cuisines_dict={'bakery':5,'chinese':25,'cafe':30,'italian':55,'biryani':7,'north indian':50,'south indian':85, 'american':1,'mexican':73}
+		cuisines_dict={'chinese':25,'italian':55,'north indian':50,'south indian':85, 'american':1,'mexican':73}
 		results=zomato.restaurant_search("", lat, lon, str(cuisines_dict.get(cuisine)), 5)
 		d = json.loads(results)
 		response=""
@@ -55,6 +59,31 @@ class ValidateLocation(Action):
 		if loc.lower() not in tier_city_list:
 			return [SlotSet('location','nomatch')]
 		return [SlotSet('location',loc)]					
+
+class SendEmail(Action):
+	def name(self):
+		return 'action_send_email'
+
+	def run(self, dispatcher, tracker, domain):	
+		from_email = 'foodie.restaurantfinder@gmail.com'
+		to_email = 'sundararajan.n@gmail.com'
+		cred = 'Upgrad123'
+		gmail = smtplib.SMTP('smtp.gmail.com',587)
+		gmail.ehlo()
+		gmail.starttls()
+		gmail.login(from_email, cred)
+		email_subject = 'Hello from Foodie'
+		email_msg = MIMEMultipart()
+		email_msg['From'] = from_email
+		email_msg['TO'] = to_email
+		email_msg['Subject'] = email_subject
+		email_body = 'Test Email Body'
+		email_msg.attach(MIMEText(email_body,'plain'))
+		email_text = email_msg.as_string()
+		gmail.sendmail(from_email,to_email,email_text)
+		gmail.close()
+		return[AllSlotsReset()]
+
 class ActionChatReset(Action): 
 	def name(self): 
 		return 'action_reset_chat' 
