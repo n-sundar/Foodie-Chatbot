@@ -2,13 +2,13 @@ session_config:
   session_expiration_time: 0
   carry_over_slots_to_new_session: true
 intents:
-- restaurant_search
+- deny
 - greet
 - send_email
+- restaurant_search
 - goodbye
 - stop
 - affirm
-- deny
 entities:
 - budget
 - cuisine
@@ -91,6 +91,10 @@ responses:
   - text: hey there! How may i help you
   - text: Hi, How can I help you!
   - text: Hey, How is it going. How May I help you Today
+  utter_regreet:
+  - text: Still looking for something? Lets start..
+  - text: Lets find more food. Ask me..
+  - text: Looks like you are still hungry? Want me to help?
   utter_invalid_email:
   - text: The email ID is invalid. Please enter again.
 actions:
@@ -108,4 +112,5 @@ actions:
 - utter_goodbye
 - utter_greet
 - utter_invalid_email
+- utter_regreet
 version: '2.0'

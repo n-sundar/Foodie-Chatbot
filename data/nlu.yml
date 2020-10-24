@@ -18,12 +18,34 @@ nlu:
     - in [taramani](location)
     - [delhi](location)
     - [American](cuisine)
-    - [expnsv](budget)
+    - find a restaurant in [delhi](location)
+    - [Chinese]{"entity": "cuisine", "value": "chinese"}
+    - find a place to ear in [dilli](location)
+    - maybe in [delhi](location)
+    - [South Indian](cuisine)
+    - [budg](budget)
+    - find a [chinese](cuisine) restaurant in [mangalore](location)
+    - find a [pizza]{"entity": "cuisine", "value": "italian"} place in [mangalore](location)
+    - [norml](budget)
+    - i am starving, so find a place to eat [pasta]{"entity": "cuisine", "value": "italian"}
+    - in [mumbai](location) where it would [cost 300 to 700]{"entity": "budget", "value": "norml"}
+    - i am hungry
+    - find me a good [american](cuisine) eatery at [trivandrum]{"entity": "location", "value": "Thiruvananthapuram"} that would cost [between 300 and 700]{"entity": "budget", "value": "norml"}
 - intent: send_email
   examples: |
     - send it to [sundararajan.n@gmail.com](email)
     - please send it to [sundararajan.n@gmail.com](email)
     - to [sundararajan.n@gmail.com](email)
+    - sure my email is [sundararajan.n@gmail.com](email)
+    - yes to [sundararajan.n@gmail.com](email) please
+    - yeah sure send it over to [sundararajan.n@gmail.com](email)
+    - sure shoot it to [sundararajan.n@gmail.com](email)
+- intent: deny
+  examples: |
+    - nope
 - synonym: bangalore
   examples: |
     - bengaluru
+- synonym: chinese
+  examples: |
+    - Chinese

@@ -45,6 +45,7 @@ stories:
   - action: action_send_email
   - action: utter_goodbye
   - action: action_restart
+  - action: utter_regreet
 
 - story: interactive_story_1
   steps:
@@ -92,8 +93,9 @@ stories:
     - email_chk: valid
   - action: utter_goodbye
   - action: action_restart
+  - action: utter_regreet
 
-- story: interactive_story_1
+- story: interactive_story_2
   steps:
   - intent: greet
   - action: utter_greet
@@ -149,3 +151,222 @@ stories:
     - email_chk: valid
   - action: utter_goodbye
   - action: action_restart
+  - action: utter_regreet
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - location: delhi
+  - slot_was_set:
+    - location: delhi
+  - action: action_validate_location
+  - slot_was_set:
+    - loc_chk: match
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+  - slot_was_set:
+    - cuisine: chinese
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: norml
+  - slot_was_set:
+    - budget: norml
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: delhi
+  - slot_was_set:
+    - cuisine: chinese
+  - slot_was_set:
+    - budget: ''
+  - slot_was_set:
+    - email_body: "Below are the top restaurants for your search: \n1. C.I.A. Call It Asiian with average rating of 4.4 found at 13 - 16, Narmada Shopping Complex, Alaknanda Road, Near Don Bosco School, Greater Kailash 2 (GK 2), New Delhi and the average cost for 2 would be INR 700. \n2. Berco's with average rating of 4.2 found at E-42 & 43, Inner Circle, Connaught Place, New Delhi and the average cost for 2 would be INR 700. \n3. Pema's with average rating of 4.1 found at Shop 5, 3/31, Upper Ground Floor, Shivalik Road, Malviya Nagar, New Delhi and the average cost for 2 would be INR 700. \n"
+  - action: utter_ask_send_email
+  - intent: send_email
+    entities:
+    - email: sundararajan.n@gmail.com
+  - slot_was_set:
+    - email: sundararajan.n@gmail.com
+  - action: action_send_email
+  - slot_was_set:
+    - email_chk: valid
+  - action: utter_goodbye
+  - action: action_restart
+  - action: utter_regreet
+
+- story: interactive_story_2
+  steps:
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - location: dilli
+  - slot_was_set:
+    - location: dilli
+  - action: action_validate_location
+  - slot_was_set:
+    - loc_chk: nomatch
+  - action: utter_dont_operate
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: delhi
+  - slot_was_set:
+    - location: delhi
+  - action: action_validate_location
+  - slot_was_set:
+    - loc_chk: match
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: South Indian
+  - slot_was_set:
+    - cuisine: South Indian
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: budg
+  - slot_was_set:
+    - budget: budg
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: delhi
+  - slot_was_set:
+    - cuisine: South Indian
+  - slot_was_set:
+    - budget: ''
+  - slot_was_set:
+    - email_body: "Below are the top restaurants for your search: \n1. Lakshmi Coffee House with average rating of 4.3 found at Brahmaputra Shopping Complex, Sector 29, Noida and the average cost for 2 would be INR 300. \n2. Flavors of Chennai with average rating of 4.2 found at 6, Corner Market, Near Hanuman Temple, Malviya Nagar, New Delhi and the average cost for 2 would be INR 300. \n3. Anna Ka Dosa with average rating of 4.0 found at Shop 2, Krishna Market, Near Deshbandhu College, Kalkaji, New Delhi and the average cost for 2 would be INR 200. \n4. Coffee Home with average rating of 3.8 found at Baba Kharak Singh Marg, Connaught Place, New Delhi and the average cost for 2 would be INR 200. \n"
+  - action: utter_ask_send_email
+  - intent: send_email
+    entities:
+    - email: sundararajan.n@gmail.com
+  - slot_was_set:
+    - email: sundararajan.n@gmail.com
+  - action: action_send_email
+  - slot_was_set:
+    - email_chk: valid
+  - action: utter_goodbye
+  - action: action_restart
+  - action: utter_regreet
+
+- story: interactive_story_1
+  steps:
+  - intent: restaurant_search
+    entities:
+    - cuisine: italian
+    - location: mangalore
+  - slot_was_set:
+    - cuisine: italian
+  - slot_was_set:
+    - location: mangalore
+  - action: action_validate_location
+  - slot_was_set:
+    - loc_chk: match
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: norml
+  - slot_was_set:
+    - budget: norml
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: mangalore
+  - slot_was_set:
+    - cuisine: italian
+  - slot_was_set:
+    - budget: ''
+  - slot_was_set:
+    - email_body: "Below are the top restaurants for your search: \n1. Domino's Pizza with average rating of 4.4 found at S10, Legacy Commercial Complex, Lower Bendoorwell Road, Kankanady, Mangalore and the average cost for 2 would be INR 400. \n2. Froth On Top with average rating of 4.3 found at Silk House, Balmatta Arya Samaj Road, Balmatta, Mangalore and the average cost for 2 would be INR 700. \n3. Basil Cafe with average rating of 4.3 found at Opp of AFCO Empire Building, Bejai Kapikad Road, Bejai, Mangalore and the average cost for 2 would be INR 500. \n4. Spindrift with average rating of 4.3 found at 5th Floor, Bharath Mall, Bejai, Opposite KSRTC Bus Stand, Mangalore and the average cost for 2 would be INR 700. \n5. Pizza Hut with average rating of 4.1 found at 4th Floor, City Center Mall, KS Rao Road, KS Rao Nagar, Mangalore and the average cost for 2 would be INR 600. \n6. The Good Galette with average rating of 4.1 found at Skycourt, Attavar, Mangalore and the average cost for 2 would be INR 400. \n7. Brio Cafe and Grill with average rating of 4.0 found at Sainik Bhavan, Next to St Aloysius College, Lighthouse Hill, Hampankatta, Mangalore and the average cost for 2 would be INR 500. \n8. Pizza Hut with average rating of 4.0 found at 89 A, Kodialbail Village, Survey 02, Bharath Bagh, Bhejai Mall, Lalbagh, Mangalore and the average cost for 2 would be INR 600. \n9. The Chocolate Room with average rating of 4.0 found at 1st Floor, Empire Mall, MG Road, Kodailbail, Mangalore and the average cost for 2 would be INR 600. \n10. Grubbery with average rating of 4.0 found at 1st Floor, Opposite Yenepoya University, Kanachur Avenue, Belma Village, Derlakatte, Mangalore and the average cost for 2 would be INR 700. \n"
+  - action: utter_ask_send_email
+  - intent: send_email
+    entities:
+    - email: sundararajan.n@gmail.com
+  - slot_was_set:
+    - email: sundararajan.n@gmail.com
+  - action: action_send_email
+  - slot_was_set:
+    - email_chk: valid
+  - action: utter_goodbye
+  - action: action_restart
+  - action: utter_regreet
+
+- story: interactive_story_2
+  steps:
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - cuisine: italian
+  - slot_was_set:
+    - cuisine: italian
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: mumbai
+    - budget: norml
+  - slot_was_set:
+    - budget: norml
+  - slot_was_set:
+    - location: mumbai
+  - action: action_validate_location
+  - slot_was_set:
+    - loc_chk: match    
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: mumbai
+  - slot_was_set:
+    - cuisine: italian
+  - slot_was_set:
+    - budget: ''
+  - slot_was_set:
+    - email_body: "Below are the top restaurants for your search: \n1. Pishu's with average rating of 4.1 found at Shop 9, Nandkripa Shopping Centre, Ratan Nagar Lane, Near Ganesh Sai Dham Mandir, Market Area, 4 Bungalows, Mumbai and the average cost for 2 would be INR 400. \n"
+  - action: utter_ask_send_email
+  - intent: send_email
+    entities:
+    - email: sundararajan.n@gmail.com
+  - slot_was_set:
+    - email: sundararajan.n@gmail.com
+  - action: action_send_email
+  - slot_was_set:
+    - email_chk: valid
+  - action: utter_goodbye
+  - action: action_restart
+  - action: utter_regreet
+
+- story: interactive_story_3
+  steps:
+  - action: utter_greet
+  - intent: greet
+  - intent: restaurant_search
+  - intent: restaurant_search
+    entities:
+    - cuisine: american
+    - location: Thiruvananthapuram
+    - budget: norml
+  - slot_was_set:
+    - budget: norml
+  - slot_was_set:
+    - cuisine: american
+  - slot_was_set:
+    - location: Thiruvananthapuram
+  - action: action_validate_location
+  - slot_was_set:
+    - loc_chk: match
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: Thiruvananthapuram
+  - slot_was_set:
+    - cuisine: american
+  - slot_was_set:
+    - budget: ''
+  - slot_was_set:
+    - email_body: "Below are the top restaurants for your search: \n1. KFC with average rating of 4.2 found at 1, QRS Mall, MG Road, Pulimoodu, Palayam, Trivandrum and the average cost for 2 would be INR 450. \n2. McDonald's with average rating of 4.1 found at Mall Of Travancore, Near Ananthapuri Hospital, NH 66, Chakkai, Kannanthura, Trivandrum and the average cost for 2 would be INR 500. \n3. Burger Lounge with average rating of 4.1 found at Lekshmi Nagar, Kesavadasapuram, Trivandrum and the average cost for 2 would be INR 500. \n4. KFC with average rating of 4.1 found at Mall Of Travancore, Enchakkal, Kannanthura, Trivandrum and the average cost for 2 would be INR 450. \n5. Chicking with average rating of 3.9 found at Santhi Building, Vellayambalam Road, Sasthamangalam, Trivandrum and the average cost for 2 would be INR 500. \n6. Pizza Hut with average rating of 3.9 found at 2nd Floor, Mall of Travancore, Kannanthura, Trivandrum and the average cost for 2 would be INR 600. \n7. Pizza Hut with average rating of 3.9 found at Heera High Life, Keston Road, Kowdiar Ambalamukku, Trivandrum and the average cost for 2 would be INR 600. \n8. Cofi Club with average rating of 3.9 found at TC 2/3592, Kiliyileth Building, Opposite Big Bazar, Vivekanand Nagar, Kesavadaspuram, Trivandrum and the average cost for 2 would be INR 600. \n9. KFC with average rating of 3.9 found at Sree Dhanya Boulevard, Opposite Big Bazaar, Vivekanand Nagar, Kesavadasapuram, Trivandrum and the average cost for 2 would be INR 450. \n10. Pizza Hut with average rating of 3.9 found at Oban Square, RBI Colony, Ulloor, Trivandrum and the average cost for 2 would be INR 600. \n"
+  - action: utter_ask_send_email
+  - intent: deny
+  - action: utter_goodbye
+  - action: action_restart
+  - action: utter_regreet
