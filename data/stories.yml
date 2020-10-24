@@ -1,0 +1,151 @@
+
+version: "2.0"
+stories:
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: bangalore
+  - slot_was_set:
+    - location: bangalore
+  - action: action_validate_location
+  - slot_was_set:
+    - loc_chk: match
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: Italian
+  - slot_was_set:
+    - cuisine: Italian
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: norml
+  - slot_was_set:
+    - budget: norml
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: bangalore
+  - slot_was_set:
+    - cuisine: Italian
+  - slot_was_set:
+    - budget: ''
+  - slot_was_set:
+    - email_body: "Below are the top restaurants for your search: \n1. Wolf'ish with average rating of 4.2 found at 1A, Church Street, Bangalore and the average cost for 2 would be INR 700. \n2. Two Friends Cauldron with average rating of 4.0 found at 39, 15th Cross, 4th Phase, Beside HDFC Bank, JP Nagar, Bangalore and the average cost for 2 would be INR 700. \n3. Midnight Mania with average rating of 3.9 found at 101, 1st Floor, 3rd Cross, Narayana Reddy Layout, 80 Feet Road, Koramangala 6th Block, Bangalore and the average cost for 2 would be INR 700. \n"
+  - action: utter_ask_send_email
+  - intent: send_email
+    entities:
+    - email: sundararajan.n@gmail.com
+  - slot_was_set:
+    - email: sundararajan.n@gmail.com
+  - action: action_send_email
+  - action: utter_goodbye
+  - action: action_restart
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: bangalore
+  - slot_was_set:
+    - location: bangalore
+  - action: action_validate_location
+  - slot_was_set:
+    - loc_chk: match
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: Mexican
+  - slot_was_set:
+    - cuisine: Mexican
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: expnsv
+  - slot_was_set:
+    - budget: expnsv
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: bangalore
+  - slot_was_set:
+    - cuisine: Mexican
+  - slot_was_set:
+    - budget: ''
+  - slot_was_set:
+    - email_body: "Below are the top restaurants for your search: \n1. Truffles with average rating of 4.8 found at 28, 4th B Cross, Koramangala 5th Block, Bangalore and the average cost for 2 would be INR 900. \n2. Communiti with average rating of 4.7 found at 67 & 68, Brigade Solitaire, Opposite Advaith Hyundai, Residency Road, Bangalore and the average cost for 2 would be INR 1500. \n3. Brahma Brews with average rating of 4.6 found at Opposite Brigade Palm Springs, 24th Main, 7th Phase, JP Nagar, Bangalore and the average cost for 2 would be INR 1900. \n4. High Ultra Lounge with average rating of 4.4 found at 26/1, 31st Floor, Dr. Rajkumar Road, World Trade Centre, Brigade Gateway Campus, Malleshwaram, Bangalore and the average cost for 2 would be INR 2600. \n5. Byg Brewski Brewing Company with average rating of 4.4 found at Opposite MK Retail, Sarjapur Road, Bangalore and the average cost for 2 would be INR 1600. \n6. Toit with average rating of 4.4 found at 298, 100 Feet Road, Namma Metro Pillar 62, Indiranagar, Bangalore and the average cost for 2 would be INR 2000. \n7. Biergarten with average rating of 4.3 found at 2, Doddanekkundi, Whitefield Road, Mahadevpura, Whitefield, Bangalore and the average cost for 2 would be INR 2400. \n8. TBC Sky Lounge with average rating of 4.3 found at Astra Hotel, 2795, 27th Main, Sector 1, HSR, Bangalore and the average cost for 2 would be INR 1600. \n9. Big Pitcher with average rating of 4.2 found at 4121, LR Arcade, Old Airport Road, Bangalore and the average cost for 2 would be INR 1600. \n10. Byg Brewski Brewing Company with average rating of 4.2 found at 22/123, Byrathi Village, Bidarahalli Hobli, Hennur, Bangalore and the average cost for 2 would be INR 1600. \n"
+  - action: utter_ask_send_email
+  - intent: send_email
+    entities:
+    - email: sundararajan.n@gmail.com
+  - slot_was_set:
+    - email: sundararajan.n@gmail.com
+  - action: action_send_email
+  - slot_was_set:
+    - email_chk: valid
+  - action: utter_goodbye
+  - action: action_restart
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: taramani
+  - slot_was_set:
+    - location: taramani
+  - action: action_validate_location
+  - slot_was_set:
+    - loc_chk: nomatch
+  - action: utter_dont_operate
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: delhi
+  - slot_was_set:
+    - location: delhi
+  - action: action_validate_location
+  - slot_was_set:
+    - loc_chk: match
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: American
+  - slot_was_set:
+    - cuisine: American
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: expnsv
+  - slot_was_set:
+    - budget: expnsv
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: delhi
+  - slot_was_set:
+    - cuisine: American
+  - slot_was_set:
+    - budget: ''
+  - slot_was_set:
+    - email_body: "Below are the top restaurants for your search: \n1. The All American Diner with average rating of 4.3 found at India Habitat Centre, Lodhi Road, New Delhi and the average cost for 2 would be INR 1800. \n2. SAZ - American Brasserie with average rating of 4.3 found at 21, 1st Floor, Sunder Nagar Market, Near HDFC Bank, Sunder Nagar, New Delhi and the average cost for 2 would be INR 2300. \n3. The American Connection Diner with average rating of 4.0 found at F1, 2nd Floor, Kalkaji Main Market, Kalkaji, New Delhi and the average cost for 2 would be INR 1500. \n4. Big Fat Sandwich with average rating of 4.0 found at A 15/A, Market Lane, Block E, Hauz Khas, New Delhi and the average cost for 2 would be INR 800. \n"
+  - action: utter_ask_send_email
+  - intent: send_email
+    entities:
+    - email: sundararajan.n@gmail.com
+  - slot_was_set:
+    - email: sundararajan.n@gmail.com
+  - action: action_send_email
+  - slot_was_set:
+    - email_chk: valid
+  - action: utter_goodbye
+  - action: action_restart

@@ -101,8 +101,24 @@
 - [Moderate Rs.300 - 700]{"entity": "budget", "value": "norml"}
 - [Fine Dining > Rs.700]{"entity": "budget", "value": "expnsv"}
 - [less than 300]{"entity": "budget", "value": "budg"}
+- [< 300]{"entity": "budget", "value": "budg"}
+- [< INR 300]{"entity": "budget", "value": "budg"}
+- [> 700]{"entity": "budget", "value": "expnsv"}
+- [> Rs.700]{"entity": "budget", "value": "expnsv"}
+- [> INR 700]{"entity": "budget", "value": "expnsv"}
+- [greater than 700]{"entity": "budget", "value": "expnsv"}
+- [greater than Rs.700]{"entity": "budget", "value": "expnsv"}
+- [greater than INR 700]{"entity": "budget", "value": "expnsv"}
+- [300 to 700]{"entity": "budget", "value": "norml"}
+- [between 300 to 700]{"entity": "budget", "value": "norml"}
+- [from INR 300 to INR 700]{"entity": "budget", "value": "norml"}
+- [from 300 to 700]{"entity": "budget", "value": "norml"}
 - costing [less than 300]{"entity": "budget", "value": "budg"}
+- Find me a [expensive]{"entity": "budget", "value": "expnsv"} restaurant for two please
 - Find me a [fine dining]{"entity": "budget", "value": "expnsv"} restaurant for two please
+- Show me some restaurants that [cost greater than 700]{"entity": "budget", "value": "expnsv"}
+- Show me some restaurants that [cost between 300 and 700]{"entity": "budget", "value": "normal"}
+- Show me some [classy]{"entity": "budget", "value": "normal"} restaurants
 - I want to ear
 - i am starving
 - [chennai](location)
@@ -112,21 +128,76 @@
 - find me a [italian](cuisine) restaurant in [mayapur](location)
 - [Chennai](location)
 - find me a [pocket friendly]{"entity": "budget", "value": "budg"} [chinese](cuisine) restaurant in [chennai](location)
+- find me a restaurant
+- [mayapur](location)
+- find a restaurant
+- [chennai](location)
+- [Italian](cuisine)
+- [norml](budget)
+- Find me an [italian](cuisine) restaurant in [chennai](location) that costs [300 to 700]{"entity": "budget", "value": "norml"} for [two people]{"entity":"people","value":"two"} and send the list to [sundar.n@gmail.com](email)
+- Show me amerian(cuisine) restaurants that cost [> 700]{"entity": "budget", "value": "expnsv"}
+- Show me joints that cost [> 700]{"entity": "budget", "value": "expnsv"} in [chennai](location)
+- find a good [chinese] place to have dinner that is also [upscale]{"entity": "budget", "value": "expnsv"}
+- find a good place to have dinner that is also [upscale]{"entity": "budget", "value": "expnsv"}
+- I am hungry and I want to eat [pizza]{"entity": "cuisine", "value": "italian"} that is [affordable]{"entity": "budget", "value": "budget"}
+- I want to eat [chowmein]{"entity": "cuisine", "value": "chinese"} in pune(location)
+- I want to eat [pasta]{"entity": "cuisine", "value": "italian"} in [trichy]{"entity": "location", "value": "tiruchirappalli"}
+- I want to eat [noodles]{"entity": "cuisine", "value": "chinese"} in [vizag]{"entity": "location", "value": "visakhapatnam"}
+- Let's look for [burrito]{"entity": "cuisine", "value": "mexican"} in [allahabad]{"entity": "location", "value": "prayagraj"}
+- Let's look for [tacos]{"entity": "cuisine", "value": "mexican"} for a [budget]{"entity": "budget", "value": "budg"}
+
+## intent:send_email
+- yes please
+- sure, send it
+- go ahead
+- oh yes
+- please send it
+- send it please
+- yes of course
+- send it
+- sure my email address is [abcd_abcd@abcd.com](email)
+- yes, send it to [abc.anc@xyz.in](email)
+- send it to this email [abc123.def123@gmail.gov](email)
+- absolutely send it to [abc_123.abc_123@abcd.com](email)
+- sure, send it to [abcd_123@xyz.com](email)
+- yup, my email is [abcd.123@xyz.com](email)
+- sure, it is [abcd_123@gmail.com](email)
+- [sundararajan.n@gmail.com](email)
+- [sundar_1982@gmail.com](email)
+- [sundar-1982@gmail.com](email)
+- [sundar-1982.sundar-1982@gmail.com](email)
+- [sundar_1982.sundar_1982@gmail.com](email)
+- [sundar@gmail.com](email)
+## intent:deny
+- no don't send an email
+- dont send it
+- I don't need it
+- I am good
+- nope
+- not necessary
+- forget it
+- who needs email
+- no, dont send it
+- quite unnecessary
+- unnecessary
 
 ## synonym:4
 - four
 
 ## synonym:bangalore
 - Bengaluru
+- blore
+- blr
 
 ## synonym:budg
 - Pocket-Friendly < Rs.300
 - less than 300
+- < 300
+- < INR 300
+- pocket friendly
 - <300
 - budget friendly
 - low cost
-- pocket friendly
-- < 300
 - lessthan 300
 
 ## synonym:chinese
@@ -139,15 +210,30 @@
 
 ## synonym:expnsv
 - Fine Dining > Rs.700
+- > 700
+- > Rs.700
+- > INR 700
+- greater than 700
+- greater than Rs.700
+- greater than INR 700
+- expensive
 - fine dining
+- cost greater than 700
 - Fine Dining
 - more than 700
 - morethan 700
+
+## synonym:normal
+- cost between 300 and 700
+- classy
 
 ## synonym:norml
 - normal
 - Moderate Rs.300 - 700
 - 300 to 700
+- between 300 to 700
+- from INR 300 to INR 700
+- from 300 to 700
 - <700
 - medium budget
 - less than 700
@@ -158,5 +244,133 @@
 - veggie
 - vegg
 
+## regex:email
+- ^[a-zA-Z0-9-_]+(\.[a-zA-Z0-9-_])*@[a-z]+\.[a-z]{2,3}$
+
 ## regex:greet
 - hey[^\s]*
+
+## synonym:Hyderabad
+- secunderabad
+- hydrabad
+
+## synonym:Kolkata
+- calcutta
+
+## synonym:Ahmedabad
+- amdavad
+- ahmadabad
+
+## synonym:Chennai
+- madras
+
+## synonym:Amravati
+- amaravati
+
+## synonym:Amritsar
+- ambarsar
+- amirtsar
+
+## synonym:Belgaum
+- belgam
+- belagavi
+- belgaon
+- belgavy
+- belagavy
+
+## synonym:Bhubaneswar
+- bhuvaneswar
+- bhubhaneshwar
+- bhubaneshwar
+
+## synonym:Coimbatore
+- kovai
+
+## synonym:Dehradun
+- dehra dun
+- doon
+
+## synonym:Bhilai
+- bilai
+
+## synonym:Gulbarga
+- kalaburagi
+
+## synonym:Gurgaon
+- gurugram
+
+## synonym:Guwahati
+- gauhati
+- gowhati
+- gowhathi
+
+## synonym:Hubli
+- hubballi
+- hubbali
+- dharwad
+- hubli-dharwad
+
+## synonym:Jalandhar
+- jalandar
+
+## synonym:Kochi
+- cochin
+- ernakulam
+
+## synonym:Kollam
+- quilon
+
+## synonym:Kozhikode
+- calicut
+
+## synonym:Mangalore
+- mangaluru
+
+## synonym:Mysore
+- mysuru
+
+## synonym:Nashik
+- nasik
+
+## synonym:Palakkad
+- palghat
+
+## synonym:Pondicherry
+- puducherry
+- puducheri
+
+## synonym:Prayagraj
+- allahabad
+
+## synonym:Visakhapatnam
+- vizag
+
+## synonym:Thiruvananthapuram
+- trivandrum
+
+## synonym:Thrissur
+- trichur
+- thrissoor
+
+## synonym:Tiruchirappalli
+- trichy
+
+## synonym:Tirunelveli
+- nellai
+
+## synonym:Tiruppur
+- tirupur
+
+## synonym:Vadodara
+- baroda
+
+## synonym:Varanasi
+- benares
+- banaras
+- kashi
+- kasi
+
+## synonym:Vasai-Virar City
+- Vasai-Virar
+- VasaiVirar
+- Vasai Virar

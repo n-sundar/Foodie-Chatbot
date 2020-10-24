@@ -1,28 +1,50 @@
-actions:
-- action_reset_chat
-- action_search_restaurants
-- action_send_email
-- action_validate_location
-- utter_ask_budget
-- utter_ask_cuisine
-- utter_ask_howcanhelp
-- utter_ask_location
-- utter_default
-- utter_dont_operate
-- utter_goodbye
-- utter_greet
+session_config:
+  session_expiration_time: 0
+  carry_over_slots_to_new_session: true
+intents:
+- restaurant_search
+- greet
+- send_email
+- goodbye
+- stop
+- affirm
+- deny
 entities:
 - budget
 - cuisine
 - email
 - location
 - people
-intents:
-- greet
-- restaurant_search
-- goodbye
-- stop
-- affirm
+slots:
+  budget:
+    type: text
+    influence_conversation: true
+  cuisine:
+    type: text
+    influence_conversation: true
+  email:
+    type: text
+    influence_conversation: true
+  email_body:
+    type: text
+    influence_conversation: true
+  email_chk:
+    type: categorical
+    influence_conversation: true
+    values:
+    - valid
+    - invalid
+    - __other__
+  loc_chk:
+    type: categorical
+    influence_conversation: true
+    values:
+    - match
+    - nomatch
+    - __other__
+  location:
+    type: text
+    influence_conversation: true
 responses:
   utter_ask_budget:
   - buttons:
@@ -52,11 +74,14 @@ responses:
   - text: how can I help you?
   utter_ask_location:
   - text: In what location?
+  utter_ask_send_email:
+  - text: Do you want me to send the top 10 restaurants to your email?
+  utter_enter_email:
+  - text: Please provide your email address.
   utter_default:
   - text: i cannot understand
   utter_dont_operate:
-  - text: Sorry, we don't operate in this city yet. Please try another city or check
-      the spelling
+  - text: Sorry, we don't operate in this city yet. Please try another city or check the spelling
   utter_goodbye:
   - text: goodbye
   - text: Bye-bye
@@ -66,15 +91,21 @@ responses:
   - text: hey there! How may i help you
   - text: Hi, How can I help you!
   - text: Hey, How is it going. How May I help you Today
-session_config:
-  carry_over_slots_to_new_session: true
-  session_expiration_time: 0
-slots:
-  budget:
-    type: text
-  cuisine:
-    type: text
-  email:
-    type: text
-  location:
-    type: text
+  utter_invalid_email:
+  - text: The email ID is invalid. Please enter again.
+actions:
+- action_reset_chat
+- action_search_restaurants
+- action_send_email
+- action_validate_location
+- utter_ask_budget
+- utter_ask_cuisine
+- utter_ask_howcanhelp
+- utter_ask_location
+- utter_ask_send_email
+- utter_default
+- utter_dont_operate
+- utter_goodbye
+- utter_greet
+- utter_invalid_email
+version: '2.0'
