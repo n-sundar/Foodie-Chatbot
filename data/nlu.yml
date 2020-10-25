@@ -60,13 +60,15 @@ nlu:
     - i am looking for food in [bumbay](location)
     - find a place to eat in [bambay](location)
     - may be then in [mumbai](location)
-    - [Mexican](cuisine)
-    - [norml](budget)
     - find a [mexican](cuisine) place in [channai](location)
     - maybe in [chennai](location) then
-    - [expnsv](budget)
     - i want to to find a restaurant that does [american](cuisine) cuisine in [secunderebad](location) and also costs [less than INR 700]{"entity": "budget", "value": "norml"}
     - maybe in [secunderabad]{"entity": "location", "value": "Hyderabad"} then
+    - find a [mexican](cuisine)[mexican](cuisine) place in [mumbai](location)[mumbai](location) that is also [affordable]{"entity": "budget", "value": "budg"}[affordable]{"entity": "budget", "value": "budg"}
+    - find me a place to eat in [rishikesh](location)[rishikesh](location)
+    - in [chandigarh](location)[chandigarh](location) maybe
+    - [Italian](cuisine)[Italian](cuisine)
+    - [expnsv](budget)[expnsv](budget)
 - intent: send_email
   examples: |
     - send it to [sundararajan.n@gmail.com](email)
@@ -92,6 +94,8 @@ nlu:
     - dont worry
     - its fine
     - no please
+    - no thanks
+    - no leave it
 - synonym: bangalore
   examples: |
     - bengaluru
@@ -107,6 +111,7 @@ nlu:
     - cost 300 to 700
     - between 300 and 700
     - less than 700
+    - less than INR 700
 - synonym: Thiruvananthapuram
   examples: |
     - trivandrum
@@ -128,3 +133,6 @@ nlu:
 - synonym: chennai
   examples: |
     - madras
+- synonym: Hyderabad
+  examples: |
+    - secunderabad

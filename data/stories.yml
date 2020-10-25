@@ -938,3 +938,86 @@ stories:
     - email_chk: valid
   - action: utter_goodbye
   - action: action_restart
+
+- story: interactive_story_1
+  steps:
+  - intent: restaurant_search
+    entities:
+    - cuisine: mexican
+    - location: mumbai
+    - budget: budg
+    - cuisine: mexican
+    - location: mumbai
+    - budget: budg
+  - slot_was_set:
+    - budget: budg
+  - slot_was_set:
+    - cuisine: mexican
+  - slot_was_set:
+    - location: mumbai
+  - action: action_validate_location
+  - slot_was_set:
+    - loc_chk: match
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: mumbai
+  - slot_was_set:
+    - cuisine: mexican
+  - slot_was_set:
+    - budget: ''
+  - slot_was_set:
+    - email_body: "Below are the top restaurants for your search: \n1. Dip Box with average rating of 3.9 found at 404, Shradhanand Road, Akruti Erica, Vile Parle East, Mumbai and the average cost for 2 would be INR 300. \n"
+  - action: utter_ask_send_email
+  - intent: deny
+  - action: utter_goodbye
+  - action: action_restart
+
+- story: interactive_story_1
+  steps:
+  - intent: restaurant_search
+    entities:
+    - location: rishikesh
+    - location: rishikesh
+  - slot_was_set:
+    - location: rishikesh
+  - action: action_validate_location
+  - slot_was_set:
+    - loc_chk: nomatch
+  - action: utter_dont_operate
+  - action: utter_reenter_location
+  - intent: restaurant_search
+    entities:
+    - location: chandigarh
+    - location: chandigarh
+  - slot_was_set:
+    - location: chandigarh
+  - action: action_validate_location
+  - slot_was_set:
+    - loc_chk: match
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: Italian
+    - cuisine: Italian
+  - slot_was_set:
+    - cuisine: Italian
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: expnsv
+    - budget: expnsv
+  - slot_was_set:
+    - budget: expnsv
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: chandigarh
+  - slot_was_set:
+    - cuisine: Italian
+  - slot_was_set:
+    - budget: ''
+  - slot_was_set:
+    - email_body: "Below are the top restaurants for your search: \n1. Virgin Courtyard with average rating of 4.8 found at SCO 1A, Near Madhya Marg, Sector 7C, Near Sector 7, Chandigarh and the average cost for 2 would be INR 2200. \n2. The Great Bear with average rating of 4.8 found at SCO 32, Madhya Marg, Sector 26, Chandigarh and the average cost for 2 would be INR 1600. \n3. Chili's with average rating of 4.5 found at 312 B, 3rd Floor, Elante Mall, Phase 1, Chandigarh Industrial Area, Chandigarh and the average cost for 2 would be INR 1200. \n4. Falcon Cafe Lounge with average rating of 4.4 found at Site 5, Sector 16, Panchkula and the average cost for 2 would be INR 1100. \n5. CAFÈ JC's with average rating of 4.2 found at Shop 2 & 3, Coal Depot Complex, Sector 10 D, Near Sector 10, Chandigarh and the average cost for 2 would be INR 1200. \n6. Boathouse with average rating of 4.2 found at Ground Floor, Elante Mall, Near Volvo Showroom, Chandigarh Industrial Area, Chandigarh and the average cost for 2 would be INR 1600. \n7. Sector 7 Social with average rating of 4.2 found at SCO 37, Madhya Marg, Sector 7, Chandigarh and the average cost for 2 would be INR 1400. \n8. The Hedgehog Café with average rating of 4.2 found at SCF 12, Inner Market, Sector 7 C, Near Sector 7, Chandigarh and the average cost for 2 would be INR 1200. \n9. Tattlers with average rating of 3.8 found at SCO 7, Inner Market, Near MG Store, Sector 9 D, Sector 9, Chandigarh and the average cost for 2 would be INR 1500. \n"
+  - action: utter_ask_send_email
+  - intent: deny
+  - action: utter_goodbye
+  - action: action_restart

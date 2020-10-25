@@ -133,6 +133,10 @@
 - find a restaurant
 - [chennai](location)
 - [Italian](cuisine)
+- [thai](cusiine)
+- [meditterranean](cuisine)
+- [biryani](cuisine)
+- [biriyani](cuisine)
 - [norml](budget)
 - Find me an [italian](cuisine) restaurant in [chennai](location) that costs [300 to 700]{"entity": "budget", "value": "norml"} for [two people]{"entity":"people","value":"two"} and send the list to [sundar.n@gmail.com](email)
 - Show me amerian(cuisine) restaurants that cost [> 700]{"entity": "budget", "value": "expnsv"}
@@ -145,6 +149,24 @@
 - I want to eat [noodles]{"entity": "cuisine", "value": "chinese"} in [vizag]{"entity": "location", "value": "visakhapatnam"}
 - Let's look for [burrito]{"entity": "cuisine", "value": "mexican"} in [allahabad]{"entity": "location", "value": "prayagraj"}
 - Let's look for [tacos]{"entity": "cuisine", "value": "mexican"} for a [budget]{"entity": "budget", "value": "budg"}
+- Find a place to eat in [delhi](location)
+- I am hungry, i am in [nellore](location)
+- Looking for food in [vijayawada](location) with a [<300]{"entity": "budget", "value": "budg"} cost for 2
+- Search for [cheap]{"entity": "budget", "value": "budg"} hotels in [guntur](location)
+- Find food in [hubli](location) that would be [budget friendly]{"entity": "budget", "value": "budg"}
+- Looking for [mysore](location) hotels that serve [thai](cuisine)
+- Search for a [biryani](cuisine) serving hotel at [madurai](location)
+- help me to find restaurants in [pondy]{"entity":"location","value":"Pondicherry"}
+- find some [mexican](cuisine) restaurant that is [affordable]{"entity": "budget", "value": "budg"} located at [lucknow](location) and send it to [sundararajan.n@gmail.com](email)
+- I am looking to eat [south indian](cuisine) at [malappuram](location)
+- hey help me find a restaurant in [gwalior](location)
+- hey find a restaurant at [mumbai](location)
+- find a restaurant located in [bombay]{"entity":"location","value":"mumbai"}
+- hello just get me a list of [american](cuisine) restaurants in [new delhi]{"entity":"location","value":"delhi"}
+- hello please find me restaurants at [kanpur](location)
+- hi there get me hotels located in [bhubaneswar](location) that serve [chinese](cuisine) for a [budget]{"entity": "budget", "value": "budg"}
+- hi there get me hotesl located at [jaipur](location)
+- search for a [noodles]{"entity": "cuisine", "value": "chinese"} place in [guntur](location)
 
 ## intent:send_email
 - yes please
@@ -338,6 +360,7 @@
 ## synonym:Pondicherry
 - puducherry
 - puducheri
+- pondy
 
 ## synonym:Prayagraj
 - allahabad
@@ -356,7 +379,7 @@
 - tiruchirappalli
 - trichi
 - thiruchi
-- tiruchirapalli
+- tiruchirap(alli
 
 ## synonym:Tirunelveli
 - nellai

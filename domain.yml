@@ -2,9 +2,9 @@ session_config:
   session_expiration_time: 0
   carry_over_slots_to_new_session: true
 intents:
-- send_email
 - deny
 - restaurant_search
+- send_email
 - greet
 - goodbye
 - stop
