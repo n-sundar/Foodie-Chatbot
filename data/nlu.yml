@@ -4,6 +4,12 @@ nlu:
   examples: |
     - hello
     - hi there
+    - how is it going?
+    - hey
+    - hello there
+    - hello how are you
+    - hi
+    - hey there
 - intent: restaurant_search
   examples: |
     - find a restaurant
@@ -26,11 +32,41 @@ nlu:
     - [budg](budget)
     - find a [chinese](cuisine) restaurant in [mangalore](location)
     - find a [pizza]{"entity": "cuisine", "value": "italian"} place in [mangalore](location)
-    - [norml](budget)
     - i am starving, so find a place to eat [pasta]{"entity": "cuisine", "value": "italian"}
     - in [mumbai](location) where it would [cost 300 to 700]{"entity": "budget", "value": "norml"}
     - i am hungry
     - find me a good [american](cuisine) eatery at [trivandrum]{"entity": "location", "value": "Thiruvananthapuram"} that would cost [between 300 and 700]{"entity": "budget", "value": "norml"}
+    - lets find some [north indian](cuisine) place that is [not too expensive]{"entity": "budget", "value": "budg"}
+    - [lucknow](location)
+    - lets find a place to eat [north indian](cuisine) that is [not too expensive]{"entity": "budget", "value": "budg"}
+    - in [lucknow](location)
+    - find me an [affordable]{"entity": "budget", "value": "budg"} place to eat
+    - how about [south indian](cuisine) in [hyderabad](location)
+    - find a joint in [kolkata](location) that is [fine dining]{"entity": "budget", "value": "expnsv"}
+    - I want to eat in [patna](location)
+    - i want an [italian](cuisine) place that is [less than 700]{"entity": "budget", "value": "norml"}
+    - find a [low cost]{"entity": "budget", "value": "budg"} restaurant
+    - maybe in [darjeeling](location)
+    - maybe in [calcutta]{"entity": "location", "value": "Kolkata"} then
+    - find a [mexican](cuisine) place to eat in [cochin]{"entity": "location", "value": "Kochi"} that costs [above 700]{"entity": "budget", "value": "expnsv"}
+    - find a [mexican](cuisine) place to eat in [kochi](location) that costs [above 700]{"entity": "budget", "value": "expnsv"}
+    - i want to eat in [chennai](location)
+    - i want to find a [south indian](cuisine) place in [trichy](location)
+    - i want to eat in [dalli](location)
+    - [North Indian](cuisine)
+    - find me a eatery in [madarasa](email)
+    - find a place to eat in [madarasa](location)
+    - maybe in [madras]{"entity": "location", "value": "chennai"} then
+    - i am looking for food in [bumbay](location)
+    - find a place to eat in [bambay](location)
+    - may be then in [mumbai](location)
+    - [Mexican](cuisine)
+    - [norml](budget)
+    - find a [mexican](cuisine) place in [channai](location)
+    - maybe in [chennai](location) then
+    - [expnsv](budget)
+    - i want to to find a restaurant that does [american](cuisine) cuisine in [secunderebad](location) and also costs [less than INR 700]{"entity": "budget", "value": "norml"}
+    - maybe in [secunderabad]{"entity": "location", "value": "Hyderabad"} then
 - intent: send_email
   examples: |
     - send it to [sundararajan.n@gmail.com](email)
@@ -40,12 +76,55 @@ nlu:
     - yes to [sundararajan.n@gmail.com](email) please
     - yeah sure send it over to [sundararajan.n@gmail.com](email)
     - sure shoot it to [sundararajan.n@gmail.com](email)
+    - pls send it to [sundararajan.n@gmail.com](email)
+    - yes please, please send it to [sundararajan.n@gmail.com](email)
+    - yeah send it to [sundar@com](email)
+    - oh here is the right one [sundararajan.n@gmail.com](email)
+    - yes please
+    - yeah send it to [sundararajan.n@gmail.com](email)
+    - yes fine
+    - yes please do
+    - [sundararajan.n@gmail.com](email)
 - intent: deny
   examples: |
     - nope
+    - no dont send it
+    - dont worry
+    - its fine
+    - no please
 - synonym: bangalore
   examples: |
     - bengaluru
 - synonym: chinese
   examples: |
     - Chinese
+- synonym: italian
+  examples: |
+    - pizza
+    - pasta
+- synonym: norml
+  examples: |
+    - cost 300 to 700
+    - between 300 and 700
+    - less than 700
+- synonym: Thiruvananthapuram
+  examples: |
+    - trivandrum
+- synonym: budg
+  examples: |
+    - not too expensive
+    - affordable
+    - low cost
+- synonym: expnsv
+  examples: |
+    - fine dining
+    - above 700
+- synonym: Kolkata
+  examples: |
+    - calcutta
+- synonym: Kochi
+  examples: |
+    - cochin
+- synonym: chennai
+  examples: |
+    - madras

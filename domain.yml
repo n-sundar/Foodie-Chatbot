@@ -2,10 +2,10 @@ session_config:
   session_expiration_time: 0
   carry_over_slots_to_new_session: true
 intents:
-- deny
-- greet
 - send_email
+- deny
 - restaurant_search
+- greet
 - goodbye
 - stop
 - affirm
@@ -74,6 +74,8 @@ responses:
   - text: how can I help you?
   utter_ask_location:
   - text: In what location?
+  utter_reenter_location:
+  - text: Let us try a different location?
   utter_ask_send_email:
   - text: Do you want me to send the top 10 restaurants to your email?
   utter_enter_email:
@@ -109,8 +111,10 @@ actions:
 - utter_ask_send_email
 - utter_default
 - utter_dont_operate
+- utter_enter_email
 - utter_goodbye
 - utter_greet
 - utter_invalid_email
+- utter_reenter_location
 - utter_regreet
 version: '2.0'

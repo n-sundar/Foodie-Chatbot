@@ -45,7 +45,6 @@ stories:
   - action: action_send_email
   - action: utter_goodbye
   - action: action_restart
-  - action: utter_regreet
 
 - story: interactive_story_1
   steps:
@@ -93,7 +92,6 @@ stories:
     - email_chk: valid
   - action: utter_goodbye
   - action: action_restart
-  - action: utter_regreet
 
 - story: interactive_story_2
   steps:
@@ -110,7 +108,7 @@ stories:
   - slot_was_set:
     - loc_chk: nomatch
   - action: utter_dont_operate
-  - action: utter_ask_location
+  - action: utter_reenter_location
   - intent: restaurant_search
     entities:
     - location: delhi
@@ -151,7 +149,6 @@ stories:
     - email_chk: valid
   - action: utter_goodbye
   - action: action_restart
-  - action: utter_regreet
 
 - story: interactive_story_1
   steps:
@@ -197,7 +194,6 @@ stories:
     - email_chk: valid
   - action: utter_goodbye
   - action: action_restart
-  - action: utter_regreet
 
 - story: interactive_story_2
   steps:
@@ -211,7 +207,7 @@ stories:
   - slot_was_set:
     - loc_chk: nomatch
   - action: utter_dont_operate
-  - action: utter_ask_location
+  - action: utter_reenter_location
   - intent: restaurant_search
     entities:
     - location: delhi
@@ -252,7 +248,6 @@ stories:
     - email_chk: valid
   - action: utter_goodbye
   - action: action_restart
-  - action: utter_regreet
 
 - story: interactive_story_1
   steps:
@@ -293,7 +288,6 @@ stories:
     - email_chk: valid
   - action: utter_goodbye
   - action: action_restart
-  - action: utter_regreet
 
 - story: interactive_story_2
   steps:
@@ -335,7 +329,6 @@ stories:
     - email_chk: valid
   - action: utter_goodbye
   - action: action_restart
-  - action: utter_regreet
 
 - story: interactive_story_3
   steps:
@@ -369,4 +362,579 @@ stories:
   - intent: deny
   - action: utter_goodbye
   - action: action_restart
+
+- story: interactive_story_2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - cuisine: north indian
+    - budget: budg
+  - slot_was_set:
+    - budget: budg
+  - slot_was_set:
+    - cuisine: north indian
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: lucknow
+  - slot_was_set:
+    - location: lucknow
+  - action: action_validate_location
+  - slot_was_set:
+    - loc_chk: match
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: lucknow
+  - slot_was_set:
+    - cuisine: north indian
+  - slot_was_set:
+    - budget: ''
+  - slot_was_set:
+    - email_body: "Below are the top restaurants for your search: \n1. Shere E Punjab with average rating of 4.4 found at Vivek Complex, Behind Novelty, Aliganj, Lucknow and the average cost for 2 would be INR 300. \n2. Afreen - Dine & Delivery with average rating of 4.1 found at Azad Market, Behind Lekhraj Dollar, Bhoothnath, Indira Nagar, Lucknow and the average cost for 2 would be INR 300. \n3. City Dabha & Family Restaurant with average rating of 4.0 found at Near Pitambara Guest House, Aliganj, Lucknow and the average cost for 2 would be INR 300. \n4. Durgma Restaurant with average rating of 4.0 found at Basement, Durgma Towers Lalbagh, Lucknow and the average cost for 2 would be INR 250. \n5. Awadh Biryani with average rating of 4.0 found at Tadikhana, Near Vindhyachal Mandhir, Sitapur Road, Sector A, Aliganj, Lucknow and the average cost for 2 would be INR 300. \n6. Kitchen King with average rating of 3.7 found at Sector Q Chauraha, B-1/47, Aliganj, Lucknow, Uttar Pradesh 226024 and the average cost for 2 would be INR 300. \n"
+  - action: utter_ask_send_email
+  - intent: send_email
+    entities:
+    - email: sundararajan.n@gmail.com
+  - slot_was_set:
+    - email: sundararajan.n@gmail.com
+  - action: action_send_email
+  - slot_was_set:
+    - email_chk: valid
+  - action: utter_goodbye
+  - action: action_restart
+
+- story: interactive_story_3
+  steps:
   - action: utter_regreet
+  - intent: greet
+  - intent: restaurant_search
+    entities:
+    - budget: budg
+  - slot_was_set:
+    - budget: budg
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - cuisine: south indian
+    - location: hyderabad
+  - slot_was_set:
+    - cuisine: south indian
+  - slot_was_set:
+    - location: hyderabad
+  - action: action_validate_location
+  - slot_was_set:
+    - loc_chk: match
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: hyderabad
+  - slot_was_set:
+    - cuisine: south indian
+  - slot_was_set:
+    - budget: ''
+  - slot_was_set:
+    - email_body: "Below are the top restaurants for your search: \n1. Taaza Kitchen with average rating of 4.6 found at Plot 497, 100 Feet Road, Ayyappa Society, Mega Hills, Madhapur, Hyderabad and the average cost for 2 would be INR 100. \n2. Pragati Tiffin Center with average rating of 4.5 found at H V S Road, Hanuman Tekdi, Near Pargati College, Koti, Hyderabad and the average cost for 2 would be INR 150. \n3. Ram Ki Bandi with average rating of 4.3 found at Opposite Karachi Bakery, Mozamjahi Market, Nampally, Hyderabad and the average cost for 2 would be INR 150. \n4. House of Dosas with average rating of 4.3 found at Opposite Lucid Diagnostics, Road 2, Banjara Hills, Hyderabad and the average cost for 2 would be INR 300. \n5. Royal Tiffin Center with average rating of 4.2 found at Door 4-3-548/1, Boggulkunta X Roads, Abids, Hyderabad and the average cost for 2 would be INR 300. \n6. Ahobilam Foods - Millet Cave with average rating of 4.2 found at Hotel Millet Cave, 2-79/10, Plot 10, Near Meridian School, Madhapur, Hyderabad and the average cost for 2 would be INR 300. \n7. Lakshmi Tiffin Centre with average rating of 4.1 found at Ayyappa Society, Near YSR Statue, Madhapur, Hyderabad and the average cost for 2 would be INR 200. \n8. Govind Dosa with average rating of 4.1 found at Gulzar Hauz, Charminar, Hyderabad and the average cost for 2 would be INR 300. \n9. Hotel Suprabhat with average rating of 4.1 found at Opposite Habsiguda Metro Station, Habsiguda Cross Road, Habsiguda, Hyderabad and the average cost for 2 would be INR 200. \n10. Amul Tiffin Corner with average rating of 4.0 found at 500001, 4-1-1098, Tilak Road, Bogulkunta, Abids, Hyderabad and the average cost for 2 would be INR 200. \n"
+  - action: utter_ask_send_email
+  - intent: send_email
+    entities:
+    - email: sundararajan.n@gmail.com
+  - slot_was_set:
+    - email: sundararajan.n@gmail.com
+  - action: action_send_email
+  - slot_was_set:
+    - email_chk: valid
+  - action: utter_goodbye
+  - action: action_restart
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - location: kolkata
+    - budget: expnsv
+  - slot_was_set:
+    - budget: expnsv
+  - slot_was_set:
+    - location: kolkata
+  - action: action_validate_location
+  - slot_was_set:
+    - loc_chk: match
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: Mexican
+  - slot_was_set:
+    - cuisine: Mexican
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: kolkata
+  - slot_was_set:
+    - cuisine: Mexican
+  - slot_was_set:
+    - budget: ''
+  - slot_was_set:
+    - email_body: "Below are the top restaurants for your search: \n1. Chili's Grill & Bar with average rating of 4.5 found at 375, 2nd Floor, South City Mall, Prince Anwar Shah Road, Kolkata and the average cost for 2 would be INR 1200. \n2. Carpe Diem with average rating of 4.5 found at 18M, Park Street Area, Kolkata and the average cost for 2 would be INR 1000. \n3. Snacking with average rating of 4.4 found at 188/60/2, Lake Gardens, Kolkata and the average cost for 2 would be INR 900. \n4. Sly Fox Gastro Club with average rating of 4.4 found at Globsyn Crystals, Podium Level, Block EP, Sector 5, Salt Lake, Kolkata and the average cost for 2 would be INR 1400. \n5. Chili's Grill & Bar with average rating of 4.4 found at 33, 4th Floor, Quest Mall, Syed Ali Amir Avenue, Ballygunge, Kolkata and the average cost for 2 would be INR 1200. \n6. Roastery Coffee House with average rating of 4.3 found at 70 B, Calcutta South India Club, Gariahat, Kolkata and the average cost for 2 would be INR 800. \n7. Calcutta 64 with average rating of 4.3 found at BC 25, Sector 1, Salt Lake, Kolkata and the average cost for 2 would be INR 1000. \n8. What's Up with average rating of 4.3 found at 122A, Gate -2, Opposite Nazrul Manch, Southern Avenue, Kolkata and the average cost for 2 would be INR 1500. \n9. Monkey Bar with average rating of 4.2 found at 801 A - 901 A, Fort Knox Building 6, Abindranath Thakur Sarani, Ward 63, Camac Street Area, Kolkata and the average cost for 2 would be INR 1500. \n10. BJs Sports Restrau Cum Lounge with average rating of 4.2 found at 104/1A, Sarat Bose Road, Near 85 Lansdowne, Hazra, Kolkata and the average cost for 2 would be INR 750. \n"
+  - action: utter_ask_send_email
+  - intent: deny
+  - action: utter_goodbye
+  - action: action_restart
+
+- story: interactive_story_2
+  steps:
+  - action: utter_greet
+  - intent: greet
+  - intent: restaurant_search
+    entities:
+    - location: patna
+  - slot_was_set:
+    - location: patna
+  - action: action_validate_location
+  - slot_was_set:
+    - loc_chk: match
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: italian
+    - budget: norml
+  - slot_was_set:
+    - budget: norml
+  - slot_was_set:
+    - cuisine: italian
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: patna
+  - slot_was_set:
+    - cuisine: italian
+  - slot_was_set:
+    - budget: ''
+  - slot_was_set:
+    - email_body: "Below are the top restaurants for your search: \n1. Domino's Pizza with average rating of 4.5 found at Ground Floor,  Shahi Building, Exhibition Road, Golambar, Patna and the average cost for 2 would be INR 400. \n2. 17 Degrees with average rating of 4.4 found at 6th Floor, P&M Mall, Kurji and the average cost for 2 would be INR 700. \n3. Domino's Pizza with average rating of 4.4 found at Shop 1, Plot 859, Ground Floor, Bailey Road, Sadar Gali, Revenue District, Jagdeo Path, Khajpura, Patna and the average cost for 2 would be INR 400. \n4. Domino's Pizza with average rating of 4.4 found at DS-22, Jagdeva Plaza, Lohia Nagar, Main Road, Kankarbagh, Patna and the average cost for 2 would be INR 400. \n5. Domino's Pizza with average rating of 4.4 found at Ground Floor, Raj Tower, E Boring Canal Road, Near Boring Road Crossing, Anandpuri, Patna and the average cost for 2 would be INR 400. \n6. Domino's Pizza with average rating of 4.3 found at 1, Plot 859, Ground Floor, Sadar Revenue District, Bailey Road, Khajpura, Patna and the average cost for 2 would be INR 400. \n7. Domino's Pizza with average rating of 4.3 found at 1, First Floor, Plot Number 95-98, Paharpur, Anisabad, Patna and the average cost for 2 would be INR 400. \n8. Pizza Hut with average rating of 3.9 found at T16 & T17, 3rd Floor, P & M Mall, Patliputra Colony, Kurji, Patna and the average cost for 2 would be INR 600. \n9. Pizza Hut with average rating of 3.8 found at Plot 15A, Sri Ram Enclave, Arya Kumar Road, Rajendra Nagar, Patna and the average cost for 2 would be INR 600. \n10. Pizza Hut with average rating of 3.8 found at Shop 10, 11, 26, Ground Floor, Tawheed Complex, Ashiana, Digha Ghat, Patna and the average cost for 2 would be INR 600. \n"
+  - action: utter_ask_send_email
+  - intent: send_email
+    entities:
+    - email: sundar@com
+  - slot_was_set:
+    - email: sundar@com
+  - action: action_send_email
+  - slot_was_set:
+    - email_chk: invalid
+  - action: utter_invalid_email
+  - intent: send_email
+    entities:
+    - email: sundararajan.n@gmail.com
+  - slot_was_set:
+    - email: sundararajan.n@gmail.com
+  - action: action_send_email
+  - slot_was_set:
+    - email_chk: valid
+  - action: utter_goodbye
+  - action: action_restart
+
+- story: interactive_story_2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - budget: budg
+  - slot_was_set:
+    - budget: budg
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: darjeeling
+  - slot_was_set:
+    - location: darjeeling
+  - action: action_validate_location
+  - slot_was_set:
+    - loc_chk: nomatch
+  - action: utter_dont_operate
+  - action: utter_reenter_location
+  - intent: restaurant_search
+    entities:
+    - location: Kolkata
+  - slot_was_set:
+    - location: Kolkata
+  - action: action_validate_location
+  - slot_was_set:
+    - loc_chk: match
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: American
+  - slot_was_set:
+    - cuisine: American
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: Kolkata
+  - slot_was_set:
+    - cuisine: American
+  - slot_was_set:
+    - budget: ''
+  - slot_was_set:
+    - email_body: "Below are the top restaurants for your search: \n1. The Chicken House with average rating of 4.1 found at 29/1, Hare Krishna Kunal Road, Entally, Kolkata and the average cost for 2 would be INR 250. \n2. Soms Crispy Chicken with average rating of 3.9 found at 73, College Road, Shibpur, Howrah and the average cost for 2 would be INR 200. \n3. Goofys Chicken Shack with average rating of 3.8 found at 156, GT Road, Near Little Start High School, Bally, Howrah and the average cost for 2 would be INR 200. \n4. Crossroads with average rating of 3.7 found at 345, Prince Anwar Shah Road, Kolkata and the average cost for 2 would be INR 300. \n"
+  - action: utter_ask_send_email
+  - intent: send_email
+  - action: utter_enter_email
+  - intent: send_email
+    entities:
+    - email: sundararajan.n@gmail.com
+  - slot_was_set:
+    - email: sundararajan.n@gmail.com
+  - action: action_send_email
+  - slot_was_set:
+    - email_chk: valid
+  - action: utter_goodbye
+  - action: action_restart
+
+- story: interactive_story_2
+  steps:
+  - intent: restaurant_search
+    entities:
+    - cuisine: mexican
+    - location: kochi
+    - budget: expnsv
+  - slot_was_set:
+    - budget: expnsv
+  - slot_was_set:
+    - cuisine: mexican
+  - slot_was_set:
+    - location: kochi
+  - action: action_validate_location
+  - slot_was_set:
+    - loc_chk: match
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: kochi
+  - slot_was_set:
+    - cuisine: mexican
+  - slot_was_set:
+    - budget: ''
+  - slot_was_set:
+    - email_body: "Below are the top restaurants for your search: \n1. The Mexicana - Ramada Resort with average rating of 3.7 found at Ramada Resort, Kumbalam South, Marad, Kochi and the average cost for 2 would be INR 1200. \n"
+  - action: utter_ask_send_email
+  - intent: send_email
+    entities:
+    - email: sundararajan.n@gmail.com
+  - slot_was_set:
+    - email: sundararajan.n@gmail.com
+  - action: action_send_email
+  - slot_was_set:
+    - email_chk: valid
+  - action: utter_goodbye
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - location: chennai
+  - slot_was_set:
+    - location: chennai
+  - action: action_validate_location
+  - slot_was_set:
+    - loc_chk: match
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: Mexican
+  - slot_was_set:
+    - cuisine: Mexican
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: expnsv
+  - slot_was_set:
+    - budget: expnsv
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: chennai
+  - slot_was_set:
+    - cuisine: Mexican
+  - slot_was_set:
+    - budget: ''
+  - slot_was_set:
+    - email_body: "Below are the top restaurants for your search: \n1. Fromage with average rating of 4.4 found at Somerset Greenway, Lords Avenue, MRC Nagar, Chennai and the average cost for 2 would be INR 1000. \n2. Coal Barbecues with average rating of 4.4 found at 40, 2nd Floor, Bazullah Road, T. Nagar, Chennai and the average cost for 2 would be INR 1400. \n3. Cafe De Paris with average rating of 4.4 found at 24, Cenotaph Road, Opposite Lanson Toyota, Teynampet, Chennai and the average cost for 2 would be INR 900. \n4. BurgerMan with average rating of 4.3 found at 31, 4th Main Road, Besant Nagar, Chennai and the average cost for 2 would be INR 800. \n5. Gastronomer By Double Roti with average rating of 4.3 found at 4/27, Cenotaph, 1st Street, Teynampet, Chennai and the average cost for 2 would be INR 900. \n6. Amelie's with average rating of 4.3 found at 6,Seshadri Road, Venus Colony, Alwarpet, Chennai and the average cost for 2 would be INR 900. \n7. The Fat Boy with average rating of 4.2 found at 18/24,1st Cross Street, TTK Road, Alwarpet, Chennai and the average cost for 2 would be INR 800. \n8. Pantry d'or with average rating of 4.2 found at 21/11, J Block, 6th Avenue Main Road, Anna Nagar East, Chennai and the average cost for 2 would be INR 750. \n9. The Bark with average rating of 4.2 found at 40, Maharaja Surya Rao Road, Dutch Village, Alwarpet, Chennai and the average cost for 2 would be INR 1000. \n10. Tovo with average rating of 4.1 found at 113, R K Salai, Mylapore, Chennai and the average cost for 2 would be INR 1600. \n"
+  - action: utter_ask_send_email
+  - intent: deny
+  - action: utter_goodbye
+  - action: action_restart
+
+- story: interactive_story_2
+  steps:
+  - action: utter_regreet
+  - intent: restaurant_search
+    entities:
+    - cuisine: south indian
+    - location: trichy
+  - slot_was_set:
+    - cuisine: south indian
+  - slot_was_set:
+    - location: trichy
+  - action: action_validate_location
+  - slot_was_set:
+    - loc_chk: match
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: norml
+  - slot_was_set:
+    - budget: norml
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: trichy
+  - slot_was_set:
+    - cuisine: south indian
+  - slot_was_set:
+    - budget: ''
+  - slot_was_set:
+    - email_body: "Below are the top restaurants for your search: \n1. Hotel Kannappa with average rating of 4.3 found at 73A, Salai Road, Trichy, Woraiyur, Trichy and the average cost for 2 would be INR 500. \n2. Apple Millet Veg Restaurant with average rating of 4.1 found at 11th Cross East, Thillai Nagar, Trichy and the average cost for 2 would be INR 400. \n3. Kalluppu Restaurant with average rating of 4.0 found at KALLUPPU RESTAURANT and the average cost for 2 would be INR 600. \n4. Pattukottai Kamatchi Mess with average rating of 4.0 found at Complex 5, Royal Road, Central Bus Stand, Cantonment, Trichy and the average cost for 2 would be INR 500. \n"
+  - action: utter_ask_send_email
+  - intent: deny
+  - action: utter_goodbye
+  - action: action_restart
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - location: dalli
+  - slot_was_set:
+    - location: dalli
+  - action: action_validate_location
+  - slot_was_set:
+    - loc_chk: nomatch
+  - action: utter_dont_operate
+  - action: utter_reenter_location
+  - intent: restaurant_search
+    entities:
+    - location: delhi
+  - slot_was_set:
+    - location: delhi
+  - action: action_validate_location
+  - slot_was_set:
+    - loc_chk: match
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: North Indian
+  - slot_was_set:
+    - cuisine: North Indian
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: expnsv
+  - slot_was_set:
+    - budget: expnsv
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: delhi
+  - slot_was_set:
+    - cuisine: North Indian
+  - slot_was_set:
+    - budget: ''
+  - slot_was_set:
+    - email_body: "Below are the top restaurants for your search: \n1. Dum-Pukht - ITC Maurya with average rating of 4.9 found at ITC Maurya, Chanakyapuri, New Delhi and the average cost for 2 would be INR 5000. \n2. Bukhara - ITC Maurya with average rating of 4.6 found at ITC Maurya, Chanakyapuri, New Delhi and the average cost for 2 would be INR 6500. \n3. Farzi Cafe with average rating of 4.5 found at 38/39, Level 1, Block E, Inner Circle, Connaught Place, New Delhi and the average cost for 2 would be INR 2500. \n4. Gulati with average rating of 4.4 found at 6, Pandara Road Market, New Delhi and the average cost for 2 would be INR 2500. \n5. The G.T. Road with average rating of 4.4 found at M 39, Outer Circle, Connaught Place, New Delhi and the average cost for 2 would be INR 1200. \n6. Indian Grill Room with average rating of 4.4 found at 315, 3rd Floor, Suncity Business Tower, Golf Course Road, Gurgaon and the average cost for 2 would be INR 1800. \n7. Molecule Air Bar with average rating of 4.3 found at SCO 53, 4th Floor, Main Market, Sector 29, Gurgaon and the average cost for 2 would be INR 1500. \n8. Zaffran with average rating of 4.3 found at D-26/28, Hotel Palace Heights, Connaught Place, New Delhi and the average cost for 2 would be INR 1000. \n9. Veda with average rating of 4.2 found at H-27, Outer Circle, Connaught Place, New Delhi and the average cost for 2 would be INR 1600. \n10. Punjabi By Nature with average rating of 4.2 found at 30-B, F Block, Connaught Place, New Delhi and the average cost for 2 would be INR 2200. \n"
+  - action: utter_ask_send_email
+  - intent: deny
+  - action: utter_goodbye
+  - action: action_restart
+
+- story: interactive_story_1
+  steps:
+  - intent: restaurant_search
+    entities:
+    - location: madarasa
+  - slot_was_set:
+    - location: madarasa
+  - action: action_validate_location
+  - slot_was_set:
+    - loc_chk: nomatch
+  - action: utter_dont_operate  
+  - action: utter_reenter_location
+  - intent: restaurant_search
+    entities:
+    - location: chennai
+  - slot_was_set:
+    - location: chennai
+  - action: action_validate_location
+  - slot_was_set:
+    - loc_chk: match
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: American
+  - slot_was_set:
+    - cuisine: American
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: expnsv
+  - slot_was_set:
+    - budget: expnsv
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: chennai
+  - slot_was_set:
+    - cuisine: American
+  - slot_was_set:
+    - budget: ''
+  - slot_was_set:
+    - email_body: "Below are the top restaurants for your search: \n1. Pedreno's with average rating of 4.1 found at 113/114, PS Sivaswami Salai, Mylapore, Chennai and the average cost for 2 would be INR 1200. \n"
+  - action: utter_ask_send_email
+  - intent: send_email
+  - action: utter_enter_email
+  - intent: send_email
+    entities:
+    - email: sundararajan.n@gmail.com
+  - slot_was_set:
+    - email: sundararajan.n@gmail.com
+  - action: action_send_email
+  - slot_was_set:
+    - email_chk: valid
+  - action: utter_goodbye
+  - action: action_restart
+
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - location: bambay
+  - slot_was_set:
+    - location: bambay
+  - action: action_validate_location
+  - slot_was_set:
+    - loc_chk: nomatch
+  - action: utter_dont_operate
+  - action: utter_reenter_location
+  - intent: restaurant_search
+    entities:
+    - location: mumbai
+  - slot_was_set:
+    - location: mumbai
+  - action: action_validate_location
+  - slot_was_set:
+    - loc_chk: match
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: Mexican
+  - slot_was_set:
+    - cuisine: Mexican
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: norml
+  - slot_was_set:
+    - budget: norml
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: mumbai
+  - slot_was_set:
+    - cuisine: Mexican
+  - slot_was_set:
+    - budget: ''
+  - slot_was_set:
+    - email_body: "Below are the top restaurants for your search: \n1. Prithvi Cafe with average rating of 4.3 found at Prithvi Theatre, Janki Kutir, Juhu Church Road, Juhu, Mumbai and the average cost for 2 would be INR 700. \n2. Maiz Mexican Kitchen with average rating of 4.0 found at Shop 6, Mahavir Apartments, Javji Dadaji Marg, Near Bharat Petroleum, Tardeo, Mumbai and the average cost for 2 would be INR 700. \n3. Yaanfoods with average rating of 3.9 found at New Sainath Colony, Near Mali Samaj Hall, Ramdaswadi, Poornima Talkies, Kalyan West, Thane and the average cost for 2 would be INR 400. \n4. The Latin Mess with average rating of 3.8 found at Shop 3, Aruna Niwas, Pali Naka, Pali Hill, Bandra West, Mumbai and the average cost for 2 would be INR 700. \n5. Las Tapas with average rating of 3.6 found at Shop 4, Jharna Kutir CHS, Subhash Road, Vile Parle East, Mumbai and the average cost for 2 would be INR 500. \n6. The Mexican Story with average rating of 3.0 found at Shop 1, Opposite Lady Ratan Tower, Danik Shevner Marg, Worli, Mumbai and the average cost for 2 would be INR 400. \n"
+  - action: utter_ask_send_email
+  - intent: deny
+  - action: utter_goodbye
+  - action: action_restart
+
+- story: interactive_story_2
+  steps:
+  - action: utter_regreet
+  - intent: restaurant_search
+    entities:
+    - cuisine: mexican
+    - location: channai
+  - slot_was_set:
+    - cuisine: mexican
+  - slot_was_set:
+    - location: channai
+  - action: action_validate_location
+  - slot_was_set:
+    - loc_chk: nomatch
+  - action: utter_dont_operate
+  - action: utter_reenter_location
+  - intent: restaurant_search
+    entities:
+    - location: chennai
+  - slot_was_set:
+    - location: chennai
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: expnsv
+  - slot_was_set:
+    - budget: expnsv
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: chennai
+  - slot_was_set:
+    - cuisine: mexican
+  - slot_was_set:
+    - budget: ''
+  - slot_was_set:
+    - email_body: "Below are the top restaurants for your search: \n1. Fromage with average rating of 4.4 found at Somerset Greenway, Lords Avenue, MRC Nagar, Chennai and the average cost for 2 would be INR 1000. \n2. Coal Barbecues with average rating of 4.4 found at 40, 2nd Floor, Bazullah Road, T. Nagar, Chennai and the average cost for 2 would be INR 1400. \n3. Cafe De Paris with average rating of 4.4 found at 24, Cenotaph Road, Opposite Lanson Toyota, Teynampet, Chennai and the average cost for 2 would be INR 900. \n4. BurgerMan with average rating of 4.3 found at 31, 4th Main Road, Besant Nagar, Chennai and the average cost for 2 would be INR 800. \n5. Gastronomer By Double Roti with average rating of 4.3 found at 4/27, Cenotaph, 1st Street, Teynampet, Chennai and the average cost for 2 would be INR 900. \n6. Amelie's with average rating of 4.3 found at 6,Seshadri Road, Venus Colony, Alwarpet, Chennai and the average cost for 2 would be INR 900. \n7. The Fat Boy with average rating of 4.2 found at 18/24,1st Cross Street, TTK Road, Alwarpet, Chennai and the average cost for 2 would be INR 800. \n8. Pantry d'or with average rating of 4.2 found at 21/11, J Block, 6th Avenue Main Road, Anna Nagar East, Chennai and the average cost for 2 would be INR 750. \n9. The Bark with average rating of 4.2 found at 40, Maharaja Surya Rao Road, Dutch Village, Alwarpet, Chennai and the average cost for 2 would be INR 1000. \n10. Tovo with average rating of 4.1 found at 113, R K Salai, Mylapore, Chennai and the average cost for 2 would be INR 1600. \n"
+  - action: utter_ask_send_email
+  - intent: deny
+  - action: utter_goodbye
+  - action: action_restart
+
+- story: interactive_story_3
+  steps:
+  - action: utter_regreet
+  - intent: restaurant_search
+    entities:
+    - cuisine: american
+    - location: secunderebad
+    - budget: norml
+  - slot_was_set:
+    - budget: norml
+  - slot_was_set:
+    - cuisine: american
+  - slot_was_set:
+    - location: secunderebad
+  - action: action_validate_location
+  - slot_was_set:
+    - loc_chk: nomatch
+  - action: utter_dont_operate
+  - action: utter_reenter_location
+  - intent: restaurant_search
+    entities:
+    - location: Hyderabad
+  - slot_was_set:
+    - location: Hyderabad
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: Hyderabad
+  - slot_was_set:
+    - cuisine: american
+  - slot_was_set:
+    - budget: ''
+  - slot_was_set:
+    - email_body: "Below are the top restaurants for your search: \n1. GD's with average rating of 4.3 found at HIG-A-21, APHB Colony, Jayabheri Enclave, Gachibowli, Hyderabad, Telangana 500032 and the average cost for 2 would be INR 500. \n2. Hardyz Burger with average rating of 4.3 found at Vasanth Nagar Shopping Complex, 1st Floor, Opposite Vasanth Nagar Park, Vasanth Nagar, Kukatpally, Hyderabad and the average cost for 2 would be INR 350. \n3. Pizza Hut with average rating of 3.8 found at Door 16-11, 19/19AD, Saleem Nagar, Gafoor Bagh, Malakpet, Hyderabad and the average cost for 2 would be INR 600. \n4. Pizza Hut with average rating of 3.8 found at Eureka Estate, Rajbhavan Road, Somajiguda, Hyderabad and the average cost for 2 would be INR 600. \n5. Pizza Hut with average rating of 3.8 found at 8-2-699/2, Road 12, Amudi Nagar, Bola Nagar, Banjara Hills, Hyderabad and the average cost for 2 would be INR 600. \n6. Pizza Hut with average rating of 3.8 found at Ground Floor, Hyderabad Central Mall, Panjagutta, Hyderabad and the average cost for 2 would be INR 600. \n7. Hardyz Burger with average rating of 3.7 found at 2, Ibrahim Towers 113, Neknampur Road, Puppalguda, Near Oyo Home, Manikonda, Hyderabad and the average cost for 2 would be INR 350. \n8. Pizza Hut with average rating of 3.7 found at Shop 518, 1-8-303, KPR House, Sindhi Colony, S P Road, Secunderabad and the average cost for 2 would be INR 600. \n9. Pizza Hut with average rating of 3.7 found at Survey 495/E/EE, 505/E/EE, 509/E/EE, & 215/E/EE, Rajendra Nagar Mandal, Ranga Reddy, Attapur, Hyderabad and the average cost for 2 would be INR 600. \n10. Pizza Hut with average rating of 3.7 found at Survey 95/1, NCL Habitats, Near Tirupathi Electronics, Kompally, Hyderabad and the average cost for 2 would be INR 600. \n"
+  - action: action_send_email
+  - action: utter_ask_send_email
+  - intent: send_email
+  - action: utter_enter_email
+  - intent: send_email
+    entities:
+    - email: sundararajan.n@gmail.com
+  - slot_was_set:
+    - email: sundararajan.n@gmail.com
+  - action: action_send_email
+  - slot_was_set:
+    - email_chk: valid
+  - action: utter_goodbye
+  - action: action_restart

@@ -139,9 +139,9 @@
 - Show me joints that cost [> 700]{"entity": "budget", "value": "expnsv"} in [chennai](location)
 - find a good [chinese] place to have dinner that is also [upscale]{"entity": "budget", "value": "expnsv"}
 - find a good place to have dinner that is also [upscale]{"entity": "budget", "value": "expnsv"}
-- I am hungry and I want to eat [pizza]{"entity": "cuisine", "value": "italian"} that is [affordable]{"entity": "budget", "value": "budget"}
+- I am hungry and I want to eat [pizza]{"entity": "cuisine", "value": "italian"} that is [affordable]{"entity": "budget", "value": "budg"}
 - I want to eat [chowmein]{"entity": "cuisine", "value": "chinese"} in pune(location)
-- I want to eat [pasta]{"entity": "cuisine", "value": "italian"} in [trichy]{"entity": "location", "value": "tiruchirappalli"}
+- I want to eat [pasta]{"entity": "cuisine", "value": "italian"} in [trichy](location)
 - I want to eat [noodles]{"entity": "cuisine", "value": "chinese"} in [vizag]{"entity": "location", "value": "visakhapatnam"}
 - Let's look for [burrito]{"entity": "cuisine", "value": "mexican"} in [allahabad]{"entity": "location", "value": "prayagraj"}
 - Let's look for [tacos]{"entity": "cuisine", "value": "mexican"} for a [budget]{"entity": "budget", "value": "budg"}
@@ -352,8 +352,11 @@
 - trichur
 - thrissoor
 
-## synonym:Tiruchirappalli
-- trichy
+## synonym:trichy
+- tiruchirappalli
+- trichi
+- thiruchi
+- tiruchirapalli
 
 ## synonym:Tirunelveli
 - nellai

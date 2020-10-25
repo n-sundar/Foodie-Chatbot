@@ -13,10 +13,11 @@ pipeline:
   max_ngram: 4
 - name: DIETClassifier
   epochs: 100
+- name: CRFEntityExtractor
 - name: EntitySynonymMapper
 - name: ResponseSelector
   epochs: 100
 policies:
 - name: MemoizationPolicy
 - name: TEDPolicy
-- name: MappingPolicy
+- name: RulePolicy

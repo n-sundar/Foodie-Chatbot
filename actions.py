@@ -12,6 +12,7 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
+import numpy as np
 import pandas as pd
 import re
 
@@ -32,7 +33,9 @@ class ActionSearchRestaurants(Action):
 		d1 = json.loads(location_detail)
 		lat=d1["location_suggestions"][0]["latitude"]
 		lon=d1["location_suggestions"][0]["longitude"]
-		cuisines_dict={'chinese':25,'italian':55,'north indian':50,'south indian':85, 'american':1,'mexican':73}
+		cuisines_dict={'chinese':25,'italian':55,'north indian':50,'south indian':85, 'american':1,'mexican':73,'thai': 95,\
+			'arabian':4,'BBQ':193, 'bbq':193,'biryani':7,'biriyani':7,'cafe':30,'chettinad':18, 'chettinadu':18, 'fast food':40,\
+			'ice cream':233, 'indian':148, 'Indian':148, 'kerela':62, 'mediterranean':70}
 		results=zomato.restaurant_search("", lat, lon, str(cuisines_dict.get(cuisine.lower())), 30)
 		d = json.loads(results)
 		if d['results_found'] == 0:
@@ -41,6 +44,7 @@ class ActionSearchRestaurants(Action):
 			res_list = d['restaurants']
 			res_frame = pd.DataFrame([{'name': x['restaurant']['name'], 'rating': x['restaurant']['user_rating']['aggregate_rating'],\
 				'address': x['restaurant']['location']['address'],'cost_for_2': x['restaurant']['average_cost_for_two']} for x in res_list])
+			res_frame['rating'] = np.where((res_frame.rating == 0),'0.01',res_frame.rating) #Some restaurants have a 0 rating that causes sort trouble
 			res_frame.sort_values(by = 'rating', ascending = False,inplace = True)
 			if budget == 'budg':
 				final_frame = res_frame.loc[(res_frame.cost_for_2 <= 300)][:10].reset_index()
@@ -72,7 +76,7 @@ class ActionSearchRestaurants(Action):
 		dispatcher.utter_message(chat_response)
 		return [SlotSet('location',loc),SlotSet('cuisine',cuisine),SlotSet('budget',''),SlotSet('email_body',email_response)]
 
-tier_city_list = ['ahmedabad', 'bengaluru', 'bangalore', 'chennai', 'madras', 'delhi', 'new delhi', 'hyderabad', 'kolkata', 'calcutta', 
+tier_city_list = ['ahmedabad', 'bengaluru', 'bangalore', 'chennai', 'madras', 'delhi', 'new delhi', 'hyderabad', 'kolkata', 
 					'mumbai', 'bombay', 'pune', 'agra', 'ajmer', 'aligarh', 'amravati', 'amritsar', 'asansol', 'aurangabad', 'bareilly', 'belgaum', 
 					'bhavnagar', 'bhiwandi', 'bhopal', 'bhubaneswar', 'bikaner', 'bilaspur', 'bokaro steel city', 'chandigarh', 
 					'coimbatore', 'cuttack', 'dehradun', 'dhanbad', 'bhilai', 'durgapur', 'dindigul', 'erode', 'faridabad', 'firozabad', 
@@ -82,7 +86,7 @@ tier_city_list = ['ahmedabad', 'bengaluru', 'bangalore', 'chennai', 'madras', 'd
 					'madurai', 'malappuram', 'mathura', 'mangalore', 'meerut', 'moradabad', 'mysore', 'nagpur', 'nanded', 'nashik', 
 					'nellore', 'noida', 'patna', 'pondicherry', 'purulia', 'prayagraj', 'raipur', 'rajkot', 'rajahmundry', 'ranchi', 
 					'rourkela', 'salem', 'sangli', 'shimla', 'siliguri', 'solapur', 'srinagar', 'surat', 'thanjavur', 'thiruvananthapuram', 
-					'thrissur', 'tiruchirappalli', 'tirunelveli', 'ujjain', 'bijapur', 'vadodara', 'varanasi', 'vasai-virar city', 'vijayawada', 
+					'thrissur', 'trichy', 'tirunelveli', 'ujjain', 'bijapur', 'vadodara', 'varanasi', 'vasai-virar city', 'vijayawada', 
 					'visakhapatnam', 'vellore', 'warangal']
 class ValidateLocation(Action):
 	def name(self):
@@ -90,9 +94,16 @@ class ValidateLocation(Action):
 		
 	def run(self, dispatcher, tracker, domain):
 		loc = tracker.get_slot('location')
-		if loc.lower() not in tier_city_list:
+		""" 		if loc.lower() not in tier_city_list:
 			return [SlotSet('loc_chk','nomatch')]
-		return [SlotSet('loc_chk','match')]					
+		return [SlotSet('loc_chk','match')]		 """			
+		if loc.lower() not in tier_city_list:
+			#dispatcher.utter_message(template="utter_dont_operate")
+			#dispatcher.utter_message(template="utter_reenter_location")
+			dispatcher.utter_message('From custom action - search for another city')
+			dispatcher.utter_message('Better do that')
+			return [SlotSet('loc_chk','nomatch')]
+		return [SlotSet('loc_chk','match')]	
 
 class SendEmail(Action):
 	def name(self):
