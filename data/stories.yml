@@ -943,40 +943,6 @@ stories:
   steps:
   - intent: restaurant_search
     entities:
-    - cuisine: mexican
-    - location: mumbai
-    - budget: budg
-    - cuisine: mexican
-    - location: mumbai
-    - budget: budg
-  - slot_was_set:
-    - budget: budg
-  - slot_was_set:
-    - cuisine: mexican
-  - slot_was_set:
-    - location: mumbai
-  - action: action_validate_location
-  - slot_was_set:
-    - loc_chk: match
-  - action: action_search_restaurants
-  - slot_was_set:
-    - location: mumbai
-  - slot_was_set:
-    - cuisine: mexican
-  - slot_was_set:
-    - budget: ''
-  - slot_was_set:
-    - email_body: "Below are the top restaurants for your search: \n1. Dip Box with average rating of 3.9 found at 404, Shradhanand Road, Akruti Erica, Vile Parle East, Mumbai and the average cost for 2 would be INR 300. \n"
-  - action: utter_ask_send_email
-  - intent: deny
-  - action: utter_goodbye
-  - action: action_restart
-
-- story: interactive_story_1
-  steps:
-  - intent: restaurant_search
-    entities:
-    - location: rishikesh
     - location: rishikesh
   - slot_was_set:
     - location: rishikesh
@@ -988,7 +954,6 @@ stories:
   - intent: restaurant_search
     entities:
     - location: chandigarh
-    - location: chandigarh
   - slot_was_set:
     - location: chandigarh
   - action: action_validate_location
@@ -997,14 +962,12 @@ stories:
   - action: utter_ask_cuisine
   - intent: restaurant_search
     entities:
-    - cuisine: Italian
-    - cuisine: Italian
+    - cuisine: Mexican
   - slot_was_set:
-    - cuisine: Italian
+    - cuisine: Mexican
   - action: utter_ask_budget
   - intent: restaurant_search
     entities:
-    - budget: expnsv
     - budget: expnsv
   - slot_was_set:
     - budget: expnsv
@@ -1012,12 +975,130 @@ stories:
   - slot_was_set:
     - location: chandigarh
   - slot_was_set:
-    - cuisine: Italian
+    - cuisine: Mexican
   - slot_was_set:
     - budget: ''
   - slot_was_set:
-    - email_body: "Below are the top restaurants for your search: \n1. Virgin Courtyard with average rating of 4.8 found at SCO 1A, Near Madhya Marg, Sector 7C, Near Sector 7, Chandigarh and the average cost for 2 would be INR 2200. \n2. The Great Bear with average rating of 4.8 found at SCO 32, Madhya Marg, Sector 26, Chandigarh and the average cost for 2 would be INR 1600. \n3. Chili's with average rating of 4.5 found at 312 B, 3rd Floor, Elante Mall, Phase 1, Chandigarh Industrial Area, Chandigarh and the average cost for 2 would be INR 1200. \n4. Falcon Cafe Lounge with average rating of 4.4 found at Site 5, Sector 16, Panchkula and the average cost for 2 would be INR 1100. \n5. CAFÈ JC's with average rating of 4.2 found at Shop 2 & 3, Coal Depot Complex, Sector 10 D, Near Sector 10, Chandigarh and the average cost for 2 would be INR 1200. \n6. Boathouse with average rating of 4.2 found at Ground Floor, Elante Mall, Near Volvo Showroom, Chandigarh Industrial Area, Chandigarh and the average cost for 2 would be INR 1600. \n7. Sector 7 Social with average rating of 4.2 found at SCO 37, Madhya Marg, Sector 7, Chandigarh and the average cost for 2 would be INR 1400. \n8. The Hedgehog Café with average rating of 4.2 found at SCF 12, Inner Market, Sector 7 C, Near Sector 7, Chandigarh and the average cost for 2 would be INR 1200. \n9. Tattlers with average rating of 3.8 found at SCO 7, Inner Market, Near MG Store, Sector 9 D, Sector 9, Chandigarh and the average cost for 2 would be INR 1500. \n"
+    - email_body: "Below are the top restaurants for your search: \n1. Hops n Grains with average rating of 4.9 found at SCO 358, Sector 9, Panchkula and the average cost for 2 would be INR 2100. \n2. The Great Bear with average rating of 4.8 found at SCO 32, Madhya Marg, Sector 26, Chandigarh and the average cost for 2 would be INR 1600. \n3. Chili's with average rating of 4.5 found at 312 B, 3rd Floor, Elante Mall, Phase 1, Chandigarh Industrial Area, Chandigarh and the average cost for 2 would be INR 1200. \n4. Brooklyn Central with average rating of 4.5 found at 51A, Courtyard, Ground Floor, Elante Mall, Phase 1, Chandigarh Industrial Area, Chandigarh and the average cost for 2 would be INR 1300. \n5. Nik Baker's with average rating of 4.5 found at SCO 441 - 442, Sector 35 C, Sector 35, Chandigarh and the average cost for 2 would be INR 900. \n6. Scola with average rating of 4.4 found at SCO 180, Inner Market, Sector 7 C, Near Sector 7, Chandigarh and the average cost for 2 would be INR 1700. \n7. The Coffee Bean & Tea Leaf with average rating of 4.4 found at Shop 45, Courtyard, Elante Mall, Phase 1, Chandigarh Industrial Area, Chandigarh and the average cost for 2 would be INR 900. \n8. Nik Baker's with average rating of 4.4 found at SCO 182, Sector 5, Panchkula and the average cost for 2 would be INR 900. \n9. The Brew Estate with average rating of 4.4 found at SCO 25, Madhya Marg, Sector 26, Chandigarh and the average cost for 2 would be INR 2000. \n10. Falcon Cafe Lounge with average rating of 4.4 found at Site 5, Sector 16, Panchkula and the average cost for 2 would be INR 1100. \n"
   - action: utter_ask_send_email
-  - intent: deny
+  - intent: affirm
+  - action: utter_enter_email
+  - intent: send_email
+    entities:
+    - email: sundararajan.n@gmail.com
+  - slot_was_set:
+    - email: sundararajan.n@gmail.com
+  - action: action_send_email
+  - slot_was_set:
+    - email_chk: valid
+  - action: utter_goodbye
+  - action: action_restart
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - budget: budg
+  - slot_was_set:
+    - budget: budg
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+    - location: chennai
+  - slot_was_set:
+    - cuisine: chinese
+  - slot_was_set:
+    - location: chennai
+  - action: action_validate_location
+  - slot_was_set:
+    - loc_chk: match
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: chennai
+  - slot_was_set:
+    - cuisine: chinese
+  - slot_was_set:
+    - budget: ''
+  - slot_was_set:
+    - email_body: "Below are the top restaurants for your search: \n"
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: expnsv
+  - slot_was_set:
+    - budget: expnsv
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: chennai
+  - slot_was_set:
+    - cuisine: chinese
+  - slot_was_set:
+    - budget: ''
+  - slot_was_set:
+    - email_body: "Below are the top restaurants for your search: \n1. AB's - Absolute Barbecues with average rating of 4.8 found at 45, GN Chetty Road, T. Nagar, Chennai and the average cost for 2 would be INR 1400. \n2. Avartana - ITC Grand Chola with average rating of 4.7 found at ITC Grand Chola, 63, Mount Road, Guindy, Chennai and the average cost for 2 would be INR 4500. \n3. AB's - Absolute Barbecues with average rating of 4.7 found at Velachery Tharamani Link Road, Opposite TCS, Velachery, Chennai and the average cost for 2 would be INR 1400. \n4. Nasi And Mee with average rating of 4.6 found at 18/24, Yafa Towers, Khader Nawaz Khan Road, Thousand Lights West, Nungambakkam, Chennai and the average cost for 2 would be INR 1200. \n5. The Marina with average rating of 4.6 found at 39, College Road, Nungambakkam, Chennai and the average cost for 2 would be INR 1600. \n6. Vasco's - Hilton Chennai with average rating of 4.6 found at Hilton, 124/1, JN Salai, Guindy, Chennai and the average cost for 2 would be INR 3400. \n7. Alchemy Bar & Lounge with average rating of 4.5 found at 180, TTK Road, Alwarpet, Chennai and the average cost for 2 would be INR 2000. \n8. AB's - Absolute Barbecues with average rating of 4.5 found at 5th Floor, Vivira Mall, Navallur, Chennai and the average cost for 2 would be INR 1400. \n9. Soy Soi with average rating of 4.5 found at 2/10, Gandhi Mandapam Road, Kotturpuram, Chennai and the average cost for 2 would be INR 1400. \n10. Pumpkin Tales with average rating of 4.5 found at 37/20, Bheemanna Garden Street, Alwarpet, Chennai and the average cost for 2 would be INR 1800. \n"
+  - action: utter_ask_send_email
+  - intent: send_email
+    entities:
+    - email: sundararajan.n@gmail.com
+  - slot_was_set:
+    - email: sundararajan.n@gmail.com
+  - action: action_send_email
+  - slot_was_set:
+    - email_chk: valid
+  - action: utter_goodbye
+  - action: action_restart
+
+- story: interactive_story_2
+  steps:
+  - intent: restaurant_search
+    entities:
+    - cuisine: italian
+    - location: dalli
+  - slot_was_set:
+    - cuisine: italian
+  - slot_was_set:
+    - location: dalli
+  - action: action_validate_location
+  - slot_was_set:
+    - loc_chk: nomatch
+  - action: utter_dont_operate
+  - action: utter_reenter_location
+  - intent: restaurant_search
+    entities:
+    - location: new delhi
+  - slot_was_set:
+    - location: new delhi
+  - action: action_validate_location
+  - slot_was_set:
+    - loc_chk: match
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: norml
+  - slot_was_set:
+    - budget: norml
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: new delhi
+  - slot_was_set:
+    - cuisine: italian
+  - slot_was_set:
+    - budget: ''
+  - slot_was_set:
+    - email_body: "Below are the top restaurants for your search: \n1. The Big Chill Cakery with average rating of 4.8 found at 3B, Main Market, Khan Market, New Delhi and the average cost for 2 would be INR 700. \n2. Country Club Pizza with average rating of 4.8 found at B-114, 2nd Floor, Panscheel Vihar, Malviya Nagar, New Delhi and the average cost for 2 would be INR 400. \n3. The Big Chill Cakery with average rating of 4.8 found at Ground Floor, DLF Mall Of India, Sector 18, Noida and the average cost for 2 would be INR 700. \n4. Wenger's with average rating of 4.7 found at A 16, Connaught Place, New Delhi and the average cost for 2 would be INR 400. \n5. Natural Ice Cream with average rating of 4.7 found at L-8, L Block, Outer Circle, Connaught Place, New Delhi and the average cost for 2 would be INR 350. \n6. Wenger's Deli with average rating of 4.7 found at A 18, Radial Road, Connaught Place, New Delhi and the average cost for 2 would be INR 500. \n"
+  - action: utter_ask_send_email
+  - intent: affirm
+  - action: utter_enter_email
+  - intent: send_email
+    entities:
+    - email: sundararajan.n@gmail.com
+  - slot_was_set:
+    - email: sundararajan.n@gmail.com
+  - action: action_send_email
+  - slot_was_set:
+    - email_chk: valid
   - action: utter_goodbye
   - action: action_restart

@@ -2,13 +2,13 @@ session_config:
   session_expiration_time: 0
   carry_over_slots_to_new_session: true
 intents:
-- deny
+- greet
 - restaurant_search
 - send_email
-- greet
+- affirm
+- deny
 - goodbye
 - stop
-- affirm
 entities:
 - budget
 - cuisine
@@ -69,22 +69,27 @@ responses:
       title: South Indian
     - payload: North Indian
       title: North Indian
-    text: what kind of cuisine would you like?
+    text: What kind of cuisine would you prefer today?
   utter_ask_howcanhelp:
   - text: how can I help you?
   utter_ask_location:
-  - text: In what location?
+  - text: Where would you like to eat today?
+  - text: Which city are you in?
   utter_reenter_location:
   - text: Let us try a different location?
   utter_ask_send_email:
   - text: Do you want me to send the top 10 restaurants to your email?
   utter_enter_email:
-  - text: Please provide your email address.
+  - text: Provide your address with street, city and zip code. Nah, your email address should do!
   utter_default:
-  - text: i cannot understand
+  - text: Oops! I am unable to determine what to say next!
+  - text: Try giving a proper location/cuisine/budget to go further!
   utter_dont_operate:
-  - text: Sorry, we don't operate in this city yet. Please try another city or check the spelling
+  - text: Looks like you are in the moon! We are not there yet. Try another place!
+  - text: Looks like we are not in your place yet, or did you spell your city incorrectly?
   utter_goodbye:
+  - text: To infinity, and beyond!
+  - text: Bon Appetit!
   - text: goodbye
   - text: Bye-bye
   - text: See you soon
@@ -93,6 +98,8 @@ responses:
   - text: hey there! How may i help you
   - text: Hi, How can I help you!
   - text: Hey, How is it going. How May I help you Today
+  - text: Good day, Mr. Holmes
+  - text: Bonjour msr
   utter_regreet:
   - text: Still looking for something? Lets start..
   - text: Lets find more food. Ask me..

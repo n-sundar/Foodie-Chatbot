@@ -35,6 +35,7 @@
 - take care
 - see you soon
 - thanks
+- good day to you
 
 ## intent:greet
 - hey
@@ -47,6 +48,15 @@
 - dear sir
 - my dear watson
 - hello there
+- hola
+- hello there
+- hey buddy
+- buddy
+- good afternoon
+- fine day right
+- what a nice day
+- beautiful day
+
 
 ## intent:restaurant_search
 - I am hungry
@@ -133,7 +143,7 @@
 - find a restaurant
 - [chennai](location)
 - [Italian](cuisine)
-- [thai](cusiine)
+- [thai](cuisine)
 - [meditterranean](cuisine)
 - [biryani](cuisine)
 - [biriyani](cuisine)
@@ -167,6 +177,43 @@
 - hi there get me hotels located in [bhubaneswar](location) that serve [chinese](cuisine) for a [budget]{"entity": "budget", "value": "budg"}
 - hi there get me hotesl located at [jaipur](location)
 - search for a [noodles]{"entity": "cuisine", "value": "chinese"} place in [guntur](location)
+- find a place where I can eat for [300 to 700]{"entity": "budget", "value": "norml"} range in [guwahati](location)
+- i am hungry and want to eat in [kollam](location) for a [pinch]{"entity": "budget", "value": "budg"}
+- I am really hungry and I will like to eat [biryani](cuisine) some where in [erode](location) that is [not too costly]{"entity": "budget", "value": "norml"}
+- hey I want to eat some where in [chennai]
+- looking to eat [fried rice]{"entity": "cuisine", "value": "chinese"} at [kochi](location)
+- hello mr bot looking to eat at my home located in [chennai](location)
+- hello mr bot looking to eat at my town [chennai](location)
+- hey there I am looking for some restaurants in my city [mangalore](location)
+- find me some place in [kolkata](location) where I can eat [italian](cuisine) food
+- hey I want to eat [chinese](cuisine) food in my town
+- find me a place to eat [mexican](cuisine) food near my place
+- hey I am hungry and looking to eat [pasta]{"entity": "cuisine", "value": "italian"}
+- search for a [pizza]{"entity": "cuisine", "value": "italian"} place near my house
+- I want to eat [chinese](cuisine) food please
+- find some place to eat [thai](cuisine)
+- show me some place that is [greater than 700]{"entity": "budget", "value": "expnsv"}
+- show me some place that costs [greater than 700]{"entity": "budget", "value": "expnsv"}
+- find some place that would be [fine dining]{"entity": "budget", "value": "expnsv"}
+- find me food in my city, [chennai](location)
+- find some eatery near me, in [kolkata](location)
+- find a nice hotel in [pune](location) that serves [south indian](cuisine) and in the [INR 300 to INR 700 range]{"entity": "budget", "value": "norml"}
+- find a nice hotel in [pune](location) that serves [south indian](cuisine) and in the [300 to 700 range]{"entity": "budget", "value": "norml"}
+- search for restaurants that serve [mexican](cuisine) at a [pocket friendly]{"entity": "budget", "value": "budg"} price point
+- hello sir can you help in finding a place to eat in [udaipur](location)
+- hey can you locate something in [jodhpur](location) that is [lesser than 300]{"entity": "budget", "value": "budg"}
+- can you find a [affordable]{"entity": "budget", "value": "budg"} place that dishes out [chinese](cuisine) food?
+- buddy help me find a hotel in [hyderabad](location) that has the best [biryani](cuisine)
+- quickly find a location in [agra](location) eat for a [reasonable]{"entity": "budget", "value": "norml"} price
+- buddy I need to find a place that costs [less than Rs.300]{"entity": "budget", "value": "budg"}
+- find a restaurant that costs in [Rs.300 to Rs.700]{"entity": "budget", "value": "norml"} range
+- find a restaurant that costs in [300-700]{"entity": "budget", "value": "norml"} range
+- help me find a place in [chennai](location) that costs in the [>700]{"entity": "budget", "value": "expnsv"} range
+- search for a [south indian](cuisine) hotel that is in the [< Rs.300]{"entity": "budget", "value": "budg"} range
+- search for a [south indian](cuisine) hotel that is in the [between Rs.300 to Rs.700]{"entity": "budget", "value": "norml"} range
+- search for a [south indian](cuisine) hotel that is in the [300 to 700]{"entity": "budget", "value": "norml"} range
+- looking for a place to in [bengaluru]](location) that is in the [INR 300-INR 700]{"entity": "budget", "value": "norml"} range
+- looking for a place to in [bengaluru]](location) that is in the [Rs.300-Rs.700]{"entity": "budget", "value": "norml"} range
 
 ## intent:send_email
 - yes please
@@ -176,6 +223,7 @@
 - please send it
 - send it please
 - yes of course
+- yes, please
 - send it
 - sure my email address is [abcd_abcd@abcd.com](email)
 - yes, send it to [abc.anc@xyz.in](email)
@@ -190,6 +238,8 @@
 - [sundar-1982.sundar-1982@gmail.com](email)
 - [sundar_1982.sundar_1982@gmail.com](email)
 - [sundar@gmail.com](email)
+- yeah me email is [abcd.123@yahoo.com](email)
+
 ## intent:deny
 - no don't send an email
 - dont send it
@@ -202,6 +252,14 @@
 - no, dont send it
 - quite unnecessary
 - unnecessary
+- no thanks
+- thanks, but no
+- maybe not
+- no please
+- no dont do it
+- forget it
+- no. thanks
+- leave it
 
 ## synonym:4
 - four

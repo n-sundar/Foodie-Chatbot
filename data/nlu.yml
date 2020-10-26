@@ -10,6 +10,7 @@ nlu:
     - hello how are you
     - hi
     - hey there
+    - hey buddy
 - intent: restaurant_search
   examples: |
     - find a restaurant
@@ -64,11 +65,18 @@ nlu:
     - maybe in [chennai](location) then
     - i want to to find a restaurant that does [american](cuisine) cuisine in [secunderebad](location) and also costs [less than INR 700]{"entity": "budget", "value": "norml"}
     - maybe in [secunderabad]{"entity": "location", "value": "Hyderabad"} then
-    - find a [mexican](cuisine)[mexican](cuisine) place in [mumbai](location)[mumbai](location) that is also [affordable]{"entity": "budget", "value": "budg"}[affordable]{"entity": "budget", "value": "budg"}
-    - find me a place to eat in [rishikesh](location)[rishikesh](location)
-    - in [chandigarh](location)[chandigarh](location) maybe
-    - [Italian](cuisine)[Italian](cuisine)
-    - [expnsv](budget)[expnsv](budget)
+    - find a [mexican](cuisine) place in [mumbai](location) that is also [affordable]{"entity": "budget", "value": "budg"}
+    - find me a place to eat in [rishikesh](location)
+    - in [chandigarh](location) maybe
+    - hey can you find a restaurant in [rishikesh](location)
+    - ok then lets see [chandigarh](location)
+    - find a [low cost]{"entity": "budget", "value": "budg"} place to eat
+    - [chinese](cuisine) food in [chennai](location)
+    - [expnsv](budget)
+    - looking for a place to eat [pizza]{"entity": "cuisine", "value": "italian"} in [dalli](location)
+    - in [new delhi](location) then
+    - [norml](budget)
+    - i want to eat in [konark](location)
 - intent: send_email
   examples: |
     - send it to [sundararajan.n@gmail.com](email)
@@ -87,6 +95,8 @@ nlu:
     - yes fine
     - yes please do
     - [sundararajan.n@gmail.com](email)
+    - send it to [sundararajan.n@gmail.com](email)
+    - [sundararajan.n@gmail.com](email)
 - intent: deny
   examples: |
     - nope
@@ -96,6 +106,9 @@ nlu:
     - no please
     - no thanks
     - no leave it
+- intent: affirm
+  examples: |
+    - yeah sure
 - synonym: bangalore
   examples: |
     - bengaluru
